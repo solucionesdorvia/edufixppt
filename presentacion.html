@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduFix · Presentación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1c36;
+      --navy-mid: #122a4a;
+      --orange: #d9531e;
+      --teal: #1f8b63;
+      --blue: #1f578b;
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.76);
+      --faint: rgba(255, 255, 255, 0.42);
+      --card: rgba(18, 36, 66, 0.92);
+      --font: "Montserrat", system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .deck {
+      position: fixed;
+      inset: 0;
+      border-left: 6px solid var(--orange);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 5vw, 4rem);
+      padding-bottom: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.03);
+      transition:
+        opacity 0.55s var(--ease-out),
+        transform 0.55s var(--ease-out),
+        visibility 0.55s;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    .slide-inner {
+      width: min(1200px, 100%);
+      max-height: 100%;
+      overflow-y: auto;
+    }
+
+    /* Reveal animations (retrigger when slide activates) */
+    .slide.is-active .reveal {
+      animation: revealIn 0.75s var(--ease-out) both;
+    }
+
+    .slide.is-active .reveal-d1 { animation-delay: 0.08s; }
+    .slide.is-active .reveal-d2 { animation-delay: 0.16s; }
+    .slide.is-active .reveal-d3 { animation-delay: 0.24s; }
+    .slide.is-active .reveal-d4 { animation-delay: 0.32s; }
+    .slide.is-active .reveal-d5 { animation-delay: 0.4s; }
+    .slide.is-active .reveal-d6 { animation-delay: 0.48s; }
+    .slide.is-active .reveal-d7 { animation-delay: 0.56s; }
+    .slide.is-active .reveal-d8 { animation-delay: 0.64s; }
+
+    @keyframes revealIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+        filter: blur(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes drawBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes growUp {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .slide.is-active .hero-stat {
+      animation: popIn 0.9s var(--ease-out) 0.2s both;
+    }
+
+    .slide.is-active .bar-fill-anim {
+      transform-origin: left center;
+      animation: drawBar 1s var(--ease-out) 0.35s both;
+    }
+
+    .eyebrow {
+      font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin: 0 0 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 7vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    h1 .accent {
+      color: var(--orange);
+    }
+
+    .sub {
+      font-size: clamp(1.1rem, 2.8vw, 1.75rem);
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .mega {
+      font-size: clamp(4rem, 18vw, 9rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--orange);
+      text-align: center;
+      margin: 0.5rem 0;
+      text-shadow: 0 0 60px rgba(217, 83, 30, 0.35);
+    }
+
+    .body-text {
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 52ch;
+    }
+
+    .body-text strong {
+      color: var(--white);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1rem, 3vw, 2rem);
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 1.35rem 1.5rem;
+      border-left: 5px solid var(--orange);
+    }
+
+    .panel h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.15rem;
+      color: var(--orange);
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      line-height: 1.55;
+    }
+
+    .hallazgos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .h-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.1rem 1rem 1.1rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .h-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--accent, var(--orange));
+    }
+
+    .h-card .num {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .h-card .lbl {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar {
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border-top: 4px solid var(--teal);
+    }
+
+    .pillar h4 {
+      margin: 0 0 0.5rem;
+      color: var(--orange);
+      font-size: 1.05rem;
+    }
+
+    .pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .chart-row .lab {
+      flex: 0 0 min(42%, 220px);
+      font-size: 0.82rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chart-row .track {
+      flex: 1;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .chart-row .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange), var(--teal));
+      transform: scaleX(0);
+    }
+
+    .slide.is-active .chart-row .fill.bar-fill-anim {
+      animation: drawBar 0.85s var(--ease-out) both;
+    }
+
+    .chart-row .cnt {
+      flex: 0 0 2.5rem;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--faint);
+    }
+
+    .hist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .hist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hist-block h4 {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      color: var(--faint);
+    }
+
+    .hist-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 140px;
+    }
+
+    .hb-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hb-bar {
+      width: 100%;
+      max-width: 28px;
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--orange), #a63d18);
+      min-height: 4px;
+      transform-origin: bottom center;
+      transform: scaleY(0);
+    }
+
+    .slide.is-active .hb-bar.hb-anim {
+      animation: growUp 0.75s var(--ease-out) both;
+    }
+
+    .hist-block.teal .hb-bar {
+      background: linear-gradient(180deg, var(--teal), #166a4a);
+    }
+
+    .hb-num {
+      font-size: 0.65rem;
+      color: var(--faint);
+      font-weight: 700;
+    }
+
+    .nav-ui {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(180deg, transparent, rgba(10, 28, 54, 0.92));
+    }
+
+    .nav-ui button {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .nav-ui button:hover:not(:disabled) {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .nav-ui button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .nav-ui .counter {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 40vw;
+    }
+
+    .dots button {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .dots button.is-on {
+      background: var(--orange);
+      transform: scale(1.25);
+    }
+
+    .progress-tri {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      display: flex;
+      z-index: 99;
+      pointer-events: none;
+    }
+
+    .progress-tri span:nth-child(1) {
+      flex: 1;
+      background: var(--orange);
+      transform-origin: left;
+      transform: scaleX(var(--prog, 0));
+      transition: transform 0.45s var(--ease-out);
+    }
+
+    .progress-tri span:nth-child(2) {
+      flex: 1;
+      background: var(--teal);
+    }
+
+    .progress-tri span:nth-child(3) {
+      flex: 1;
+      background: var(--blue);
+    }
+
+    .hint {
+      position: fixed;
+      top: 0.75rem;
+      right: 1rem;
+      z-index: 101;
+      font-size: 0.72rem;
+      color: var(--faint);
+      font-weight: 600;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 1rem;
+      z-index: 101;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center .body-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link reveal" href="index.html">← Panel</a>
+  <p class="hint">← → Espacio · F pantalla</p>
+
+  <div class="deck" id="deck">
+    <!-- 0 -->
+    <section class="slide is-active" data-i="0">
+      <div class="slide-inner center">
+        <p class="eyebrow reveal reveal-d1">Pitch EduFix</p>
+        <h1 class="reveal reveal-d2"><span class="accent">EduFix</span></h1>
+        <p class="sub reveal reveal-d3">Reportes de mantenimiento en campus: claros, rápidos y accionables.</p>
+        <p class="sub reveal reveal-d4" style="margin-top: 1.25rem; font-size: 1rem" id="meta-line"></p>
+      </div>
+    </section>
+
+    <!-- 1 -->
+    <section class="slide" data-i="1">
+      <div class="slide-inner center">
+        <p class="eyebrow reveal reveal-d1">Primero, el dolor</p>
+        <p class="mega hero-stat" id="hook-pct"></p>
+        <p class="sub reveal reveal-d3" id="hook-copy"></p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-i="2">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">01 · Problema</p>
+        <h1 class="reveal reveal-d2">El problema es el sistema de reporte</h1>
+        <p class="body-text reveal reveal-d3" id="problem-body"></p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-i="3">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Evidencia</p>
+        <h1 class="reveal reveal-d2">Lo medimos con datos</h1>
+        <p class="body-text reveal reveal-d3" id="evidence-body"></p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" data-i="4">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">03 · Validación</p>
+        <h1 class="reveal reveal-d2">Hallazgos principales</h1>
+        <div class="hallazgos" id="hallazgos-host"></div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-i="5">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Contraste</p>
+        <h1 class="reveal reveal-d2">Hoy vs EduFix</h1>
+        <div class="grid-2">
+          <div class="panel reveal reveal-d3">
+            <h3>Hoy</h3>
+            <ul>
+              <li>Reporte opaco y lento</li>
+              <li>Datos no estandarizados</li>
+              <li>Poca trazabilidad</li>
+              <li>Mantenimiento reacciona tarde</li>
+            </ul>
+          </div>
+          <div class="panel reveal reveal-d4" style="border-left-color: var(--teal)">
+            <h3 style="color: var(--teal)">Con EduFix</h3>
+            <ul>
+              <li>~30 segundos para reportar</li>
+              <li>Foto + contexto estructurado</li>
+              <li>Estado visible para quien reporta</li>
+              <li>Cola priorizada para operaciones</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-i="6">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">04 · Solución</p>
+        <h1 class="reveal reveal-d2">EduFix</h1>
+        <p class="body-text reveal reveal-d3">
+          Canal único y móvil para reportar desperfectos: menos fricción, más señal para mantenimiento
+          y mejor experiencia de campus.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-i="7">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Propuesta de valor</p>
+        <h1 class="reveal reveal-d2">Por qué EduFix</h1>
+        <div class="pillars">
+          <div class="pillar reveal reveal-d3">
+            <h4>Rapidez</h4>
+            <p>Flujo guiado. Sin formularios interminables.</p>
+          </div>
+          <div class="pillar reveal reveal-d4">
+            <h4>Claridad</h4>
+            <p>Contexto homogéneo: menos idas y vueltas.</p>
+          </div>
+          <div class="pillar reveal reveal-d5">
+            <h4>Trazabilidad</h4>
+            <p>El usuario ve que el caso avanza: más confianza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-i="8">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Producto</p>
+        <h1 class="reveal reveal-d2">30 segundos</h1>
+        <div class="pillars">
+          <div class="pillar reveal reveal-d3">
+            <h4>1 · Captura</h4>
+            <p>Foto y categoría en el lugar del hecho.</p>
+          </div>
+          <div class="pillar reveal reveal-d4">
+            <h4>2 · Envío</h4>
+            <p>Entrada a la cola oficial con área / contexto.</p>
+          </div>
+          <div class="pillar reveal reveal-d5">
+            <h4>3 · Cierre</h4>
+            <p>Notificación ante avance o resolución.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-i="9">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Stakeholders</p>
+        <h1 class="reveal reveal-d2">Valor para cada actor</h1>
+        <div class="pillars">
+          <div class="pillar reveal reveal-d3">
+            <h4>Alumnos y docentes</h4>
+            <p>Menos fricción; campus que se siente cuidado.</p>
+          </div>
+          <div class="pillar reveal reveal-d4">
+            <h4>Mantenimiento</h4>
+            <p>Tickets ordenados con evidencia; menos ruido.</p>
+          </div>
+          <div class="pillar reveal reveal-d5">
+            <h4>Dirección</h4>
+            <p>Métricas de demanda real y cumplimiento visible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-i="10">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Muestra</p>
+        <h1 class="reveal reveal-d2">Composición por rol</h1>
+        <div id="chart-roles"></div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-i="11">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Dolor actual</p>
+        <h1 class="reveal reveal-d2">Frustración con los reportes</h1>
+        <div id="chart-frust"></div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-i="12">
+      <div class="slide-inner center">
+        <p class="eyebrow reveal reveal-d1">Cierre con dato</p>
+        <p class="mega hero-stat" id="close-pct"></p>
+        <p class="sub reveal reveal-d3" id="close-copy"></p>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide" data-i="13">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Distribución</p>
+        <h1 class="reveal reveal-d2">Utilidad e impacto (1–10)</h1>
+        <div class="hist-grid">
+          <div class="hist-block reveal reveal-d3">
+            <h4 id="hist-u-title"></h4>
+            <div class="hist-bars" id="hist-u"></div>
+          </div>
+          <div class="hist-block teal reveal reveal-d4">
+            <h4 id="hist-a-title"></h4>
+            <div class="hist-bars" id="hist-a"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-i="14">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">Próximo paso</p>
+        <h1 class="reveal reveal-d2">Pilotá EduFix</h1>
+        <p class="body-text reveal reveal-d3">
+          <strong>Piloto</strong> en un edificio o facultad (4–6 semanas).<br /><br />
+          <strong>Integración</strong> con mesa de ayuda o mantenimiento existente.<br /><br />
+          <strong>Métricas:</strong> reportes/semana, tiempo de cierre, satisfacción.<br /><br />
+          Demo en vivo + panel de datos que alimenta esta presentación.
+        </p>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide" data-i="15">
+      <div class="slide-inner center">
+        <h1 class="reveal reveal-d1">Gracias</h1>
+        <p class="sub reveal reveal-d2">EduFix — reportes que se ven, se priorizan y se resuelven.</p>
+        <p class="sub reveal reveal-d3" id="bye-line" style="margin-top: 1.5rem; font-size: 1rem"></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="progress-tri" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <div class="nav-ui">
+    <button type="button" id="btn-prev" aria-label="Anterior">← Anterior</button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="counter"></span>
+    <button type="button" id="btn-next" aria-label="Siguiente">Siguiente →</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    (function () {
+      const data = window.SURVEY_DATA;
+      if (!data || !data.length) {
+        document.body.innerHTML = "<p style='padding:2rem;color:#fff'>Cargá data.js (servidor local).</p>";
+        return;
+      }
+
+      const n = data.length;
+      const fmt = (x) => (Number.isFinite(x) ? x.toFixed(1).replace(".", ",") : "—");
+      const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+      const pct = (pred) => (data.filter(pred).length / n) * 100;
+
+      const pctNoSupo = pct((r) => r.detectaste_problema_y_no_supiste_a_quien_reportar === "Si");
+      const pctIgnora = pct((r) => r.ante_desperfecto_que_sueles_hacer === "Ignorarlo");
+      const pctNoCanal = pct((r) => r.tiempo_reportar_canales_oficiales === "No se como hacerlo");
+      const avgImp = mean(data.map((r) => r.afecta_entorno_descuidado_1_10));
+      const pct1a3 = pct((r) => r.veces_por_mes_notas_desperfecto === "1 a 3 veces");
+      const pctEdufix = pct((r) => r.dispuesto_foto_si_notificacion_al_cerrar === "Si");
+      const avgUtil = mean(data.map((r) => r.utilidad_app_foto_estado_1_10));
+
+      const roles = {};
+      const frust = {};
+      data.forEach((r) => {
+        roles[r.rol_principal] = (roles[r.rol_principal] || 0) + 1;
+        frust[r.frustracion_reportes_actual] = (frust[r.frustracion_reportes_actual] || 0) + 1;
+      });
+
+      const histU = {};
+      const histA = {};
+      for (let i = 1; i <= 10; i++) {
+        histU[i] = 0;
+        histA[i] = 0;
+      }
+      data.forEach((r) => {
+        histU[r.utilidad_app_foto_estado_1_10]++;
+        histA[r.afecta_entorno_descuidado_1_10]++;
+      });
+
+      const today = new Date().toLocaleDateString("es-AR");
+      const meta = window.SURVEY_METADATA;
+      document.getElementById("meta-line").textContent =
+        `${n} respuestas validadas · ${today}` +
+        (meta && meta.nota ? " · " + meta.nota : "");
+
+      document.getElementById("hook-pct").textContent = fmt(pctIgnora) + "%";
+      document.getElementById("hook-copy").textContent =
+        "de quienes respondieron suele ignorar el desperfecto. Sin dato no hay prioridad: el campus degrada y la acción llega tarde.";
+
+      const lead =
+        n >= 400
+          ? "Más de 400 encuestas confirman un proceso ineficiente e informal."
+          : `${n} respuestas confirman un patrón claro de fricción en el reporte.`;
+      document.getElementById("problem-body").innerHTML =
+        `<strong>${lead}</strong><br /><br />Hoy el flujo es informal: dispersión, incertidumbre sobre el estado del arreglo y desconfianza. Eso impacta la experiencia en el espacio donde estudian y enseñan.`;
+
+      document.getElementById("evidence-body").textContent =
+        `${n} respuestas sobre percepción, frustración y disposición a cambiar de hábito. Números para presentar a dirección, mantenimiento y comunidad educativa — no suposiciones.`;
+
+      const hallazgos = [
+        [fmt(pctNoSupo) + "%", "No supo a quién reportar", "#d9531e"],
+        [fmt(pctIgnora) + "%", "Ignoró el incidente", "#e85d5d"],
+        [fmt(pctNoCanal) + "%", "No sabe usar el canal oficial", "#5ab0ff"],
+        [fmt(avgImp) + "/10", "Impacto en la experiencia", "#1f8b63"],
+        [fmt(pct1a3) + "%", "Ve 1–3 desperfectos / mes", "#1f578b"],
+        [fmt(pctEdufix) + "%", "Usaría EduFix en ~30 s", "#4ed49e"],
+      ];
+      document.getElementById("hallazgos-host").innerHTML = hallazgos
+        .map(
+          ([num, lbl, ac], i) => `
+        <div class="h-card reveal reveal-d${Math.min(i + 2, 8)}" style="--accent:${ac}">
+          <div class="num">${num}</div>
+          <div class="lbl">${lbl}</div>
+        </div>`
+        )
+        .join("");
+
+      function barChart(hostId, obj, delayClassStart) {
+        const entries = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+        const max = Math.max(...entries.map((e) => e[1]), 1);
+        const host = document.getElementById(hostId);
+        host.innerHTML = entries
+          .map(
+            ([label, c], i) => `
+          <div class="chart-row reveal reveal-d${Math.min(delayClassStart + i, 8)}">
+            <span class="lab" title="${label.replace(/"/g, "&quot;")}">${label}</span>
+            <div class="track"><div class="fill bar-fill-anim" style="width:${(c / max) * 100}%"></div></div>
+            <span class="cnt">${c}</span>
+          </div>`
+          )
+          .join("");
+      }
+
+      barChart("chart-roles", roles, 2);
+      barChart("chart-frust", frust, 2);
+
+      document.getElementById("close-pct").textContent = fmt(pctEdufix) + "%";
+      document.getElementById("close-copy").textContent =
+        "declaran que usarían EduFix si el reporte tomara unos 30 segundos. La demanda de una herramienta simple ya está validada.";
+
+      document.getElementById("hist-u-title").textContent = `Utilidad percibida (media ${fmt(avgUtil)})`;
+      document.getElementById("hist-a-title").textContent = `Impacto entorno (media ${fmt(avgImp)})`;
+
+      function renderHist(id, hist, teal) {
+        const max = Math.max(...Object.values(hist), 1);
+        const host = document.getElementById(id);
+        host.innerHTML = "";
+        for (let i = 1; i <= 10; i++) {
+          const c = hist[i];
+          const hPx = c === 0 ? 4 : Math.max(8, Math.round((c / max) * 110));
+          const col = document.createElement("div");
+          col.className = "hb-col";
+          col.innerHTML = `
+            <div class="hb-bar hb-anim ${teal ? "" : ""}" style="height:${hPx}px;animation-delay:${0.15 + i * 0.04}s"></div>
+            <span class="hb-num">${i}</span>`;
+          host.appendChild(col);
+        }
+      }
+
+      renderHist("hist-u", histU, false);
+      renderHist("hist-a", histA, true);
+
+      document.getElementById("bye-line").textContent = `${n} respuestas · ${today}`;
+
+      const slides = [...document.querySelectorAll(".slide")];
+      const total = slides.length;
+      let idx = 0;
+
+      const dotsHost = document.getElementById("dots");
+      slides.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Ir a slide " + (i + 1));
+        b.addEventListener("click", () => go(i));
+        dotsHost.appendChild(b);
+      });
+      const dotBtns = [...dotsHost.querySelectorAll("button")];
+
+      function retriggerAnimations(slide) {
+        slide.querySelectorAll(".reveal, .hero-stat, .bar-fill-anim, .hb-anim").forEach((el) => {
+          el.style.animation = "none";
+          void el.offsetWidth;
+          el.style.animation = "";
+        });
+      }
+
+      function go(i) {
+        i = Math.max(0, Math.min(total - 1, i));
+        slides[idx].classList.remove("is-active");
+        idx = i;
+        slides[idx].classList.add("is-active");
+        retriggerAnimations(slides[idx]);
+
+        document.getElementById("btn-prev").disabled = idx === 0;
+        document.getElementById("btn-next").disabled = idx === total - 1;
+        document.getElementById("counter").textContent = `${idx + 1} / ${total}`;
+        dotBtns.forEach((b, j) => b.classList.toggle("is-on", j === idx));
+
+        document.documentElement.style.setProperty("--prog", String((idx + 1) / total));
+      }
+
+      document.getElementById("btn-prev").addEventListener("click", () => go(idx - 1));
+      document.getElementById("btn-next").addEventListener("click", () => go(idx + 1));
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+          e.preventDefault();
+          go(idx + 1);
+        }
+        if (e.key === "ArrowLeft" || e.key === "PageUp") {
+          e.preventDefault();
+          go(idx - 1);
+        }
+        if (e.key === "Home") go(0);
+        if (e.key === "End") go(total - 1);
+        if (e.key.toLowerCase() === "f") {
+          if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+          else document.exitFullscreen();
+        }
+      });
+
+      let tx0 = null;
+      document.getElementById("deck").addEventListener(
+        "touchstart",
+        (e) => {
+          tx0 = e.changedTouches[0].clientX;
+        },
+        { passive: true }
+      );
+      document.getElementById("deck").addEventListener(
+        "touchend",
+        (e) => {
+          if (tx0 == null) return;
+          const dx = e.changedTouches[0].clientX - tx0;
+          tx0 = null;
+          if (dx < -50) go(idx + 1);
+          if (dx > 50) go(idx - 1);
+        },
+        { passive: true }
+      );
+
+      go(0);
+    })();
+  </script>
+</body>
+</html>
