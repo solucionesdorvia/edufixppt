@@ -1,0 +1,406 @@
+detectaste_problema_y_no_supiste_a_quien_reportar,ante_desperfecto_que_sueles_hacer,frustracion_reportes_actual,utilidad_app_foto_estado_1_10,veces_por_mes_notas_desperfecto,tiempo_reportar_canales_oficiales,afecta_entorno_descuidado_1_10,dispuesto_foto_si_notificacion_al_cerrar,id,rol_principal
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,1,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,2,Docente
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,3,Docente
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,4,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,5,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,6,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,7,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,8,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,9,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,10,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,11,Docente
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,12,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,13,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,14,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,15,Docente
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,16,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,17,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,18,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,19,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,20,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,21,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,22,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,23,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,24,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,25,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,26,Docente
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,27,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,28,Mantenimiento
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,29,Alumno
+Si,Ignorarlo,Lentitud,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,30,Docente
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,31,Alumno
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,32,Administrativo
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,33,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,34,Alumno
+Si,Ignorarlo,Falta de respuesta,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,35,Docente
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Mas de 5 minutos,8,Si,36,Docente
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Mas de 5 minutos,8,Si,37,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,5,0,Mas de 5 minutos,8,Si,38,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,39,Administrativo
+No,Ignorarlo,No saber si se esta trabajando en ello,7,4 a 6 veces,Mas de 5 minutos,8,Si,40,Administrativo
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,41,Mantenimiento
+No,Informar a un docente,Falta de respuesta,6,4 a 6 veces,Mas de 5 minutos,8,No,42,Administrativo
+No,Informar a un docente,Lentitud,7,4 a 6 veces,Menos de un minuto,8,No,43,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,8,Mas de 6 veces,Menos de un minuto,8,No,44,Alumno
+No,Otro (especificar en notas),Lentitud,9,Mas de 6 veces,Menos de un minuto,8,No,45,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,46,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,47,Administrativo
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,48,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,49,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,50,Mantenimiento
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,51,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,52,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,53,Administrativo
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,54,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,55,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,56,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,57,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,58,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,59,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,60,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,61,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,62,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,63,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,64,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,65,Docente
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,66,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,67,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,68,Docente
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,69,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,70,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,71,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,72,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,73,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,74,Alumno
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,75,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,76,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,77,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,78,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,79,Administrativo
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,80,Mantenimiento
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Mas de 5 minutos,8,Si,81,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Mas de 5 minutos,8,Si,82,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,83,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,84,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,85,Mantenimiento
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,86,Alumno
+No,Informar a un docente,Falta de respuesta,7,4 a 6 veces,Mas de 5 minutos,8,No,87,Mantenimiento
+No,Informar a un docente,Lentitud,8,4 a 6 veces,Menos de un minuto,8,No,88,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,9,Mas de 6 veces,Menos de un minuto,8,No,89,Alumno
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,90,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,91,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,92,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,93,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,94,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,95,Docente
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,96,Docente
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,97,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,98,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,99,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,100,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,101,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,102,Docente
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,103,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,104,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,105,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,106,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,107,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,108,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,109,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,110,Docente
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,111,Docente
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,112,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,113,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,114,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,115,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,116,Administrativo
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,117,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,118,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,119,Alumno
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,120,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,121,Docente
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,122,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,123,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,Entre 1 y 5 minutos,8,Si,124,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,125,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Mas de 5 minutos,8,Si,126,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Mas de 5 minutos,8,Si,127,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,128,Administrativo
+No,Ignorarlo,No saber si se esta trabajando en ello,8,0,Mas de 5 minutos,8,Si,129,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,130,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,10,4 a 6 veces,Mas de 5 minutos,8,Si,131,Alumno
+No,Informar a un docente,Falta de respuesta,8,4 a 6 veces,Mas de 5 minutos,8,No,132,Alumno
+No,Informar a un docente,Lentitud,9,4 a 6 veces,Menos de un minuto,8,No,133,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,10,Mas de 6 veces,Menos de un minuto,8,No,134,Mantenimiento
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,135,Docente
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,136,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,137,Administrativo
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,138,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,139,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,140,Docente
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,141,Administrativo
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,142,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,143,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,144,Docente
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,145,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,146,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,147,Docente
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,148,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,149,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,150,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,151,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,152,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,153,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,154,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,155,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,156,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,157,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,158,Mantenimiento
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,159,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,160,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,161,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,162,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,163,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,164,Alumno
+Si,Ignorarlo,Lentitud,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,165,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,166,Alumno
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,167,Administrativo
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,168,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,169,Alumno
+Si,Ignorarlo,Falta de respuesta,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,170,Alumno
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Mas de 5 minutos,8,Si,171,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Mas de 5 minutos,8,Si,172,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,5,0,Mas de 5 minutos,8,Si,173,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,174,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,7,4 a 6 veces,Mas de 5 minutos,8,Si,175,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,176,Alumno
+No,Informar a un docente,Falta de respuesta,6,4 a 6 veces,Mas de 5 minutos,8,No,177,Docente
+No,Informar a un docente,Lentitud,7,4 a 6 veces,Menos de un minuto,8,No,178,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,8,Mas de 6 veces,Menos de un minuto,8,No,179,Administrativo
+No,Otro (especificar en notas),Lentitud,9,Mas de 6 veces,Menos de un minuto,8,No,180,Administrativo
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,181,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,182,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,183,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,184,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,185,Docente
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,186,Docente
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,187,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,188,Docente
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,189,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,190,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,191,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,192,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,193,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,194,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,195,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,196,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,197,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,198,Administrativo
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,199,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,200,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,201,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,202,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,203,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,204,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,205,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,206,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,207,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,208,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,209,Alumno
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,210,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,211,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,212,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,213,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,214,Docente
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,215,Docente
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Mas de 5 minutos,8,Si,216,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Mas de 5 minutos,8,Si,217,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,218,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,219,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,220,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,221,Docente
+No,Informar a un docente,Falta de respuesta,7,4 a 6 veces,Mas de 5 minutos,8,No,222,Alumno
+No,Informar a un docente,Lentitud,8,4 a 6 veces,Menos de un minuto,8,No,223,Administrativo
+No,Buscar a alguien de mantenimiento,Falta de respuesta,9,Mas de 6 veces,Menos de un minuto,8,No,224,Docente
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,225,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,226,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,227,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,228,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,229,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,230,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,231,Docente
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,232,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,233,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,234,Docente
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,235,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,236,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,237,Docente
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,238,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,239,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,240,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,241,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,242,Docente
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,243,Administrativo
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,244,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,245,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,246,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,247,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,248,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,249,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,250,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,251,Administrativo
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,252,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,253,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,254,Mantenimiento
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,255,Administrativo
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,256,Administrativo
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,257,Docente
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,258,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,Entre 1 y 5 minutos,8,Si,259,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,260,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Mas de 5 minutos,8,Si,261,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Mas de 5 minutos,8,Si,262,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,263,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,8,0,Mas de 5 minutos,8,Si,264,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,265,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,10,4 a 6 veces,Mas de 5 minutos,8,Si,266,Alumno
+No,Informar a un docente,Falta de respuesta,8,4 a 6 veces,Mas de 5 minutos,8,No,267,Mantenimiento
+No,Informar a un docente,Lentitud,9,4 a 6 veces,Menos de un minuto,8,No,268,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,10,Mas de 6 veces,Menos de un minuto,8,No,269,Alumno
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,270,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,271,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,272,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,273,Administrativo
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,274,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,275,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,276,Docente
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,277,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,278,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,279,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,280,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,281,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,282,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,283,Mantenimiento
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,284,Docente
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,285,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,286,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,287,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,288,Administrativo
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,289,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,290,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,291,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,292,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,293,Alumno
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,No se como hacerlo,8,Si,294,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,No se como hacerlo,8,Si,295,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,5,1 a 3 veces,No se como hacerlo,8,Si,296,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,No se como hacerlo,8,Si,297,Alumno
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,No se como hacerlo,8,Si,298,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,8,1 a 3 veces,No se como hacerlo,8,Si,299,Administrativo
+Si,Ignorarlo,Lentitud,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,300,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,301,Alumno
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,302,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,303,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,304,Alumno
+Si,Ignorarlo,Falta de respuesta,3,1 a 3 veces,Entre 1 y 5 minutos,8,Si,305,Alumno
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Mas de 5 minutos,8,Si,306,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Mas de 5 minutos,8,Si,307,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,5,0,Mas de 5 minutos,8,Si,308,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,309,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,7,4 a 6 veces,Mas de 5 minutos,8,Si,310,Mantenimiento
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,311,Alumno
+No,Informar a un docente,Falta de respuesta,6,4 a 6 veces,Mas de 5 minutos,8,No,312,Alumno
+No,Informar a un docente,Lentitud,7,4 a 6 veces,Menos de un minuto,8,No,313,Docente
+No,Buscar a alguien de mantenimiento,Falta de respuesta,8,Mas de 6 veces,Menos de un minuto,8,No,314,Administrativo
+No,Otro (especificar en notas),Lentitud,9,Mas de 6 veces,Menos de un minuto,8,No,315,Docente
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,316,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,317,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,318,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,319,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,320,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,321,Administrativo
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,322,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,323,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,324,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,325,Mantenimiento
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,326,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,327,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,328,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,329,Mantenimiento
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,330,Docente
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,331,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,332,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,333,Administrativo
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,334,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,335,Docente
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,336,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,337,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,338,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,339,Administrativo
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,No se como hacerlo,8,Si,340,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,6,1 a 3 veces,No se como hacerlo,8,Si,341,Mantenimiento
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,No se como hacerlo,8,Si,342,Alumno
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,No se como hacerlo,8,Si,343,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,9,1 a 3 veces,No se como hacerlo,8,Si,344,Alumno
+Si,Ignorarlo,Lentitud,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,345,Alumno
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,346,Docente
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,347,Docente
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,348,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,349,Alumno
+Si,Ignorarlo,Falta de respuesta,4,1 a 3 veces,Entre 1 y 5 minutos,8,Si,350,Alumno
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Mas de 5 minutos,8,Si,351,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Mas de 5 minutos,8,Si,352,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,6,0,Mas de 5 minutos,8,Si,353,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,354,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,8,4 a 6 veces,Mas de 5 minutos,8,Si,355,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,356,Docente
+No,Informar a un docente,Falta de respuesta,7,4 a 6 veces,Mas de 5 minutos,8,No,357,Docente
+No,Informar a un docente,Lentitud,8,4 a 6 veces,Menos de un minuto,8,No,358,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,9,Mas de 6 veces,Menos de un minuto,8,No,359,Alumno
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,360,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,361,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,362,Docente
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,363,Docente
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,364,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,365,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,366,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,367,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,368,Mantenimiento
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,369,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,370,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,371,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,372,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,373,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,374,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,375,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,376,Administrativo
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,377,Mantenimiento
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,378,Administrativo
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,379,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,380,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,381,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,382,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,383,Alumno
+Si,Ignorarlo,Lentitud,10,1 a 3 veces,No se como hacerlo,8,Si,384,Alumno
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,No se como hacerlo,8,Si,385,Docente
+Si,Ignorarlo,No saber si se esta trabajando en ello,7,1 a 3 veces,No se como hacerlo,8,Si,386,Alumno
+Si,Ignorarlo,Lentitud,8,1 a 3 veces,No se como hacerlo,8,Si,387,Alumno
+Si,Ignorarlo,Falta de respuesta,9,1 a 3 veces,No se como hacerlo,8,Si,388,Alumno
+Si,Ignorarlo,No saber si se esta trabajando en ello,10,1 a 3 veces,No se como hacerlo,8,Si,389,Docente
+Si,Ignorarlo,Lentitud,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,390,Mantenimiento
+Si,Ignorarlo,Falta de respuesta,6,1 a 3 veces,Entre 1 y 5 minutos,8,Si,391,Alumno
+Si,Ignorarlo,Lentitud,7,1 a 3 veces,Entre 1 y 5 minutos,8,Si,392,Administrativo
+Si,Ignorarlo,Falta de respuesta,8,1 a 3 veces,Entre 1 y 5 minutos,8,Si,393,Docente
+Si,Ignorarlo,Lentitud,9,1 a 3 veces,Entre 1 y 5 minutos,8,Si,394,Docente
+Si,Ignorarlo,Falta de respuesta,5,1 a 3 veces,Entre 1 y 5 minutos,8,Si,395,Alumno
+Si,Ignorarlo,Lentitud,6,1 a 3 veces,Mas de 5 minutos,8,Si,396,Docente
+Si,Ignorarlo,Falta de respuesta,7,1 a 3 veces,Mas de 5 minutos,8,Si,397,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,7,0,Mas de 5 minutos,8,Si,398,Docente
+No,Ignorarlo,No saber si se esta trabajando en ello,8,0,Mas de 5 minutos,8,Si,399,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,9,4 a 6 veces,Mas de 5 minutos,8,Si,400,Alumno
+No,Ignorarlo,No saber si se esta trabajando en ello,10,4 a 6 veces,Mas de 5 minutos,8,Si,401,Docente
+No,Informar a un docente,Falta de respuesta,8,4 a 6 veces,Mas de 5 minutos,8,No,402,Alumno
+No,Informar a un docente,Lentitud,9,4 a 6 veces,Menos de un minuto,8,No,403,Alumno
+No,Buscar a alguien de mantenimiento,Falta de respuesta,10,Mas de 6 veces,Menos de un minuto,8,No,404,Alumno
+No,Otro (especificar en notas),Lentitud,10,Mas de 6 veces,Menos de un minuto,8,No,405,Alumno

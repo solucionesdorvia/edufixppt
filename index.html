@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduFix · Validación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Slide EduFix — sección (fondo navy, acentos) */
+      --deck-navy: #0a1c36;
+      --deck-navy-mid: #0f2744;
+      --deck-orange: #d9531e;
+      --deck-teal: #1f8b63;
+      --deck-blue: #1f578b;
+      --text: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.72);
+      --text-faint: rgba(255, 255, 255, 0.45);
+      --surface: rgba(255, 255, 255, 0.06);
+      --surface-2: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.12);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --font: "Montserrat", system-ui, -apple-system, sans-serif;
+      /* Hallazgos (barras cards) */
+      --bar-orange: #d9531e;
+      --bar-red: #e85d5d;
+      --bar-blue-bright: #3d8dd4;
+      --bar-teal: #1f8b63;
+      --bar-navy-soft: #5b8ab8;
+      --bar-green: #2ecf9a;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--deck-navy);
+      padding-bottom: 10px;
+    }
+
+    /* Barra vertical naranja (todo el alto) */
+    .deck-shell {
+      min-height: 100vh;
+      border-left: 6px solid var(--deck-orange);
+      position: relative;
+    }
+
+    /* Franja inferior tricolor */
+    .deck-footer-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      display: flex;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .deck-footer-bar span:nth-child(1) {
+      flex: 1;
+      background: var(--deck-orange);
+    }
+
+    .deck-footer-bar span:nth-child(2) {
+      flex: 1;
+      background: var(--deck-teal);
+    }
+
+    .deck-footer-bar span:nth-child(3) {
+      flex: 1;
+      background: var(--deck-blue);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2.75rem 1.5rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero — inspirado en la línea gráfica EduFix (no réplica de la PPT) */
+    header.hero {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem 0 2rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-context {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #0a1c36;
+      background: #ffffff;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 2px solid var(--deck-orange);
+      transition: background 0.15s, color 0.15s, transform 0.12s;
+    }
+
+    .btn-context:hover {
+      background: var(--deck-orange);
+      color: #fff;
+    }
+
+    .btn-context:focus-visible {
+      outline: 2px solid var(--deck-teal);
+      outline-offset: 3px;
+    }
+
+    .section-num {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 800;
+      color: var(--deck-orange);
+      margin: 0 0 0.15rem;
+      line-height: 1;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.15rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.65rem;
+      color: var(--text);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0 0 1rem;
+      max-width: 48ch;
+    }
+
+    .lede {
+      max-width: 52ch;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .callout-validado {
+      margin-bottom: 2rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--deck-orange);
+    }
+
+    .callout-validado .tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--deck-orange);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .callout-validado p {
+      margin: 0;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 0 0 1rem;
+    }
+
+    .hallazgos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .hallazgo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.2rem 1.15rem 1rem;
+      border-left: 6px solid var(--accent-bar, var(--deck-orange));
+      min-height: 108px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: rise 0.55s ease backwards;
+    }
+
+    .hallazgo-card:nth-child(1) { animation-delay: 0.03s; }
+    .hallazgo-card:nth-child(2) { animation-delay: 0.06s; }
+    .hallazgo-card:nth-child(3) { animation-delay: 0.09s; }
+    .hallazgo-card:nth-child(4) { animation-delay: 0.12s; }
+    .hallazgo-card:nth-child(5) { animation-delay: 0.15s; }
+    .hallazgo-card:nth-child(6) { animation-delay: 0.18s; }
+
+    .hallazgo-card .stat {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .hallazgo-card .desc {
+      margin-top: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.15rem;
+      border-left: 5px solid var(--metric-accent, var(--deck-teal));
+      animation: rise 0.6s ease backwards;
+    }
+
+    .metric:nth-child(1) { animation-delay: 0.05s; --metric-accent: var(--deck-teal); }
+    .metric:nth-child(2) { animation-delay: 0.1s; --metric-accent: var(--deck-blue); }
+    .metric:nth-child(3) { animation-delay: 0.15s; --metric-accent: var(--deck-orange); }
+    .metric:nth-child(4) { animation-delay: 0.2s; --metric-accent: #2ecf9a; }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+    }
+
+    .metric .label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .metric .value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 0.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .metric .hint {
+      font-size: 0.82rem;
+      color: var(--text-faint);
+      margin-top: 0.28rem;
+      font-weight: 500;
+    }
+
+    .panels {
+      display: grid;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .panels {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .panel {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem;
+      border-top: 3px solid var(--deck-orange);
+    }
+
+    .panel h2 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin: 0 0 1rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 52px;
+      gap: 0.65rem;
+      align-items: center;
+      margin-bottom: 0.65rem;
+    }
+
+    .bar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .bar-label {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      grid-column: 1 / -1;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--deck-orange), var(--deck-teal));
+      transform-origin: left;
+      animation: grow 0.65s ease backwards;
+    }
+
+    @keyframes grow {
+      from {
+        transform: scaleX(0);
+      }
+    }
+
+    .bar-count {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .hist {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      min-height: 132px;
+      padding-top: 0.5rem;
+    }
+
+    .hist-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.4rem;
+      min-width: 0;
+    }
+
+    .hist-bar-area {
+      height: 100px;
+      width: 100%;
+      max-width: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hist-bar {
+      width: 100%;
+      max-width: 28px;
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--deck-orange), #a63d18);
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+
+    .hist-bar.is-zero {
+      height: 3px !important;
+      opacity: 0.35;
+      background: var(--border);
+    }
+
+    .hist-bar:hover {
+      opacity: 0.88;
+    }
+
+    #hist-afecta .hist-bar:not(.is-zero) {
+      background: linear-gradient(180deg, var(--deck-teal), #166a4a);
+    }
+
+    .hist-num {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-faint);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 200px;
+      font-family: var(--font);
+      font-size: 0.92rem;
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: rgba(10, 28, 54, 0.6);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .search::placeholder {
+      color: var(--text-faint);
+    }
+
+    .search:focus {
+      outline: 2px solid var(--deck-orange);
+      outline-offset: 2px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .chip:hover {
+      border-color: var(--deck-orange);
+      color: var(--text);
+    }
+
+    .chip[aria-pressed="true"] {
+      background: var(--deck-orange);
+      color: #fff;
+      border-color: var(--deck-orange);
+    }
+
+    .table-section {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem;
+      margin-bottom: 1.25rem;
+      border-left: 5px solid var(--deck-blue);
+    }
+
+    .table-section h2 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin: 0 0 0.85rem;
+      color: var(--text);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(10, 28, 54, 0.35);
+      max-height: min(70vh, 640px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      background: var(--deck-navy-mid);
+      border-bottom: 1px solid var(--border);
+      color: var(--text-faint);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    thead th:hover {
+      color: var(--text);
+    }
+
+    tbody td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      max-width: 220px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    tbody tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    tbody tr:hover td {
+      background: rgba(217, 83, 30, 0.08);
+      color: var(--text);
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(31, 139, 99, 0.25);
+      color: #7ee0c5;
+    }
+
+    .pill.no {
+      background: rgba(232, 93, 93, 0.2);
+      color: #ffb4b4;
+    }
+
+    .score {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-faint);
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      font-weight: 500;
+    }
+
+    footer code {
+      font-size: 0.78rem;
+      background: var(--surface);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-shell">
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-content">
+          <p class="section-num">03</p>
+          <h1>Validación</h1>
+          <p class="hero-sub">EduFix — Panel de encuestas</p>
+          <p class="lede" id="lede">
+            Métricas agregadas, distribuciones y detalle por respuesta.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-context" href="contexto.html">Contexto, metodología y presentación</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="callout-validado" id="callout-validado" aria-label="Problema validado">
+        <div class="tag">01 · Problema validado</div>
+        <p id="callout-text"></p>
+      </div>
+
+      <p class="section-title">6 hallazgos principales</p>
+      <section class="hallazgos" id="hallazgos" aria-label="Hallazgos principales"></section>
+
+      <section class="metrics" id="metrics" aria-label="Resumen"></section>
+
+      <div class="panels">
+        <div class="panel">
+          <h2>Rol principal</h2>
+          <div id="chart-rol"></div>
+        </div>
+        <div class="panel">
+          <h2>Mayor frustración con los reportes</h2>
+          <div id="chart-frust"></div>
+        </div>
+        <div class="panel">
+          <h2>Utilidad percibida de la app (1–10)</h2>
+          <div class="hist" id="hist-utilidad" role="img" aria-label="Histograma utilidad"></div>
+        </div>
+        <div class="panel">
+          <h2>Impacto del entorno descuidado (1–10)</h2>
+          <div class="hist" id="hist-afecta" role="img" aria-label="Histograma impacto"></div>
+        </div>
+      </div>
+
+      <section class="table-section">
+        <h2>Registros</h2>
+        <div class="controls">
+          <input
+            type="search"
+            class="search"
+            id="q"
+            placeholder="Buscar en cualquier campo…"
+            autocomplete="off"
+          />
+          <div class="chips" id="rol-chips" role="group" aria-label="Filtrar por rol"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr id="thead-row"></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        Visualización local. Si el navegador bloquea <code>data.js</code>, usá
+        <code>python3 -m http.server</code> en esta carpeta.
+      </footer>
+    </div>
+
+    <div class="deck-footer-bar" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    (function () {
+      const data = window.SURVEY_DATA;
+      const meta = window.SURVEY_METADATA;
+      if (!data || !data.length) {
+        document.body.innerHTML =
+          "<p style='padding:2rem;font-family:Montserrat,system-ui;background:#0a1c36;color:#fff'>No se encontró data.js o está vacío.</p>";
+        return;
+      }
+
+      const lede = document.getElementById("lede");
+      if (lede && meta && typeof meta.encuestas_validacion_total === "number") {
+        lede.textContent =
+          `${meta.encuestas_validacion_total} respuestas en el set — proporciones alineadas al deck EduFix.`;
+      }
+
+      const n = data.length;
+      document.getElementById("callout-text").textContent =
+        n >= 400
+          ? "Más de 400 encuestas confirman que el proceso actual es ineficiente e informal."
+          : `${n} respuestas en este set reflejan el mismo patrón: proceso percibido como ineficiente e informal.`;
+
+      const fmt = (x) => (Number.isFinite(x) ? x.toFixed(1).replace(".", ",") : "—");
+
+      function mean(arr) {
+        const s = arr.reduce((a, b) => a + b, 0);
+        return s / arr.length;
+      }
+
+      function pctOf(pred) {
+        return (data.filter(pred).length / n) * 100;
+      }
+
+      const pctNoSupo = pctOf((r) => r.detectaste_problema_y_no_supiste_a_quien_reportar === "Si");
+      const pctIgnora = pctOf((r) => r.ante_desperfecto_que_sueles_hacer === "Ignorarlo");
+      const pctNoCanal = pctOf((r) => r.tiempo_reportar_canales_oficiales === "No se como hacerlo");
+      const avgImpacto = mean(data.map((r) => r.afecta_entorno_descuidado_1_10));
+      const pct1a3 = pctOf((r) => r.veces_por_mes_notas_desperfecto === "1 a 3 veces");
+      const pctEdufix = pctOf((r) => r.dispuesto_foto_si_notificacion_al_cerrar === "Si");
+
+      const hallazgos = [
+        { stat: `${fmt(pctNoSupo)}%`, desc: "No supo a quién reportar", bar: "var(--bar-orange)" },
+        { stat: `${fmt(pctIgnora)}%`, desc: "Ignoró el incidente directamente", bar: "var(--bar-red)" },
+        { stat: `${fmt(pctNoCanal)}%`, desc: "No sabe cómo usar el canal oficial", bar: "var(--bar-blue-bright)" },
+        { stat: `${fmt(avgImpacto)}/10`, desc: "Impacto en la experiencia académica", bar: "var(--bar-teal)" },
+        { stat: `${fmt(pct1a3)}%`, desc: "Detecta 1–3 desperfectos por mes", bar: "var(--bar-navy-soft)" },
+        { stat: `${fmt(pctEdufix)}%`, desc: "Usaría EduFix si tardara 30 segundos", bar: "var(--bar-green)" },
+      ];
+
+      document.getElementById("hallazgos").innerHTML = hallazgos
+        .map(
+          (h) =>
+            `<article class="hallazgo-card" style="--accent-bar:${h.bar}"><div class="stat">${h.stat}</div><div class="desc">${h.desc}</div></article>`
+        )
+        .join("");
+
+      function countBy(rows, key) {
+        const m = {};
+        for (const r of rows) {
+          const v = r[key];
+          m[v] = (m[v] || 0) + 1;
+        }
+        return Object.entries(m).sort((a, b) => b[1] - a[1]);
+      }
+
+      function histogram(rows, key, maxVal) {
+        const h = Array(maxVal + 1).fill(0);
+        for (const r of rows) {
+          const v = Number(r[key]);
+          if (Number.isFinite(v) && v >= 1 && v <= maxVal) {
+            const i = Math.round(v);
+            h[i]++;
+          }
+        }
+        return h;
+      }
+
+      const avgU = mean(data.map((r) => r.utilidad_app_foto_estado_1_10));
+      const avgA = mean(data.map((r) => r.afecta_entorno_descuidado_1_10));
+      const pctFoto = pctOf((r) => r.dispuesto_foto_si_notificacion_al_cerrar === "Si");
+
+      document.getElementById("metrics").innerHTML = `
+        <div class="metric"><div class="label">Respuestas</div><div class="value">${n}</div><div class="hint">filas en el set</div></div>
+        <div class="metric"><div class="label">Utilidad (media)</div><div class="value">${fmt(avgU)}</div><div class="hint">escala 1–10</div></div>
+        <div class="metric"><div class="label">Impacto entorno</div><div class="value">${fmt(avgA)}</div><div class="hint">media 1–10</div></div>
+        <div class="metric"><div class="label">Disp. a foto + aviso</div><div class="value">${Math.round(pctFoto)}%</div><div class="hint">responden «Sí»</div></div>
+      `;
+
+      function renderBars(containerId, pairs, emptyMsg) {
+        const el = document.getElementById(containerId);
+        if (!pairs.length) {
+          el.innerHTML = `<p style="color:rgba(255,255,255,0.45);margin:0;font-weight:500">${emptyMsg}</p>`;
+          return;
+        }
+        const max = Math.max(...pairs.map((p) => p[1]), 1);
+        el.innerHTML = pairs
+          .map(
+            ([label, c], i) => `
+          <div class="bar-row" style="animation-delay:${i * 0.04}s">
+            <div class="bar-label" title="${label.replace(/"/g, "&quot;")}">${label}</div>
+            <div class="bar-count">${c}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${(c / max) * 100}%"></div></div>
+          </div>`
+          )
+          .join("");
+      }
+
+      renderBars("chart-rol", countBy(data, "rol_principal"), "Sin datos");
+      renderBars("chart-frust", countBy(data, "frustracion_reportes_actual"), "Sin datos");
+
+      function renderHist(id, key) {
+        const h = histogram(data, key, 10);
+        const max = Math.max(...h.slice(1), 1);
+        const maxPx = 100;
+        const el = document.getElementById(id);
+        el.innerHTML = h
+          .map((c, i) => {
+            if (i === 0) return "";
+            const hPx = c === 0 ? 0 : Math.max(6, Math.round((c / max) * maxPx));
+            const zeroClass = c === 0 ? " is-zero" : "";
+            const style = c === 0 ? "" : ` style="height:${hPx}px"`;
+            return `<div class="hist-col"><div class="hist-bar-area"><div class="hist-bar${zeroClass}"${style} title="${i}: ${c} respuesta${c === 1 ? "" : "s"}"></div></div><span class="hist-num">${i}</span></div>`;
+          })
+          .join("");
+      }
+
+      renderHist("hist-utilidad", "utilidad_app_foto_estado_1_10");
+      renderHist("hist-afecta", "afecta_entorno_descuidado_1_10");
+
+      const columns = [
+        { key: "id", label: "ID" },
+        { key: "rol_principal", label: "Rol" },
+        { key: "detectaste_problema_y_no_supiste_a_quien_reportar", label: "¿Problema sin saber a quién?" },
+        { key: "ante_desperfecto_que_sueles_hacer", label: "Ante desperfecto" },
+        { key: "frustracion_reportes_actual", label: "Frustración" },
+        { key: "utilidad_app_foto_estado_1_10", label: "Utilidad" },
+        { key: "veces_por_mes_notas_desperfecto", label: "Veces / mes" },
+        { key: "tiempo_reportar_canales_oficiales", label: "Tiempo a reportar" },
+        { key: "afecta_entorno_descuidado_1_10", label: "Afecta entorno" },
+        { key: "dispuesto_foto_si_notificacion_al_cerrar", label: "Foto + aviso" },
+      ];
+
+      let sortKey = "id";
+      let sortDir = 1;
+      let filterRol = null;
+      let query = "";
+
+      const thead = document.getElementById("thead-row");
+      thead.innerHTML = columns
+        .map(
+          (c) =>
+            `<th scope="col" data-key="${c.key}">${c.label}${sortKey === c.key ? (sortDir > 0 ? " ▲" : " ▼") : ""}</th>`
+        )
+        .join("");
+
+      const roles = [...new Set(data.map((r) => r.rol_principal))].sort();
+      const chipHost = document.getElementById("rol-chips");
+      chipHost.innerHTML =
+        `<button type="button" class="chip" data-rol="" aria-pressed="true">Todos</button>` +
+        roles
+          .map(
+            (r) =>
+              `<button type="button" class="chip" data-rol="${r.replace(/"/g, "&quot;")}" aria-pressed="false">${r}</button>`
+          )
+          .join("");
+
+      function cellHtml(row, col) {
+        const v = row[col.key];
+        if (col.key === "dispuesto_foto_si_notificacion_al_cerrar") {
+          const ok = v === "Si";
+          return `<span class="pill ${ok ? "" : "no"}">${ok ? "Sí" : "No"}</span>`;
+        }
+        if (col.key === "detectaste_problema_y_no_supiste_a_quien_reportar") {
+          return `<span class="pill ${v === "Si" ? "" : "no"}">${v === "Si" ? "Sí" : "No"}</span>`;
+        }
+        if (col.key === "utilidad_app_foto_estado_1_10" || col.key === "afecta_entorno_descuidado_1_10") {
+          return `<span class="score">${v}</span>`;
+        }
+        const s = String(v ?? "");
+        return s.replace(/</g, "&lt;");
+      }
+
+      function filtered() {
+        let rows = data.slice();
+        if (filterRol) rows = rows.filter((r) => r.rol_principal === filterRol);
+        if (query.trim()) {
+          const q = query.trim().toLowerCase();
+          rows = rows.filter((r) =>
+            columns.some((c) => String(r[c.key] ?? "").toLowerCase().includes(q))
+          );
+        }
+        rows.sort((a, b) => {
+          const av = a[sortKey];
+          const bv = b[sortKey];
+          if (typeof av === "number" && typeof bv === "number") return (av - bv) * sortDir;
+          return String(av).localeCompare(String(bv), "es") * sortDir;
+        });
+        return rows;
+      }
+
+      function renderTable() {
+        const rows = filtered();
+        document.getElementById("tbody").innerHTML = rows
+          .map(
+            (r) =>
+              `<tr>${columns.map((c) => `<td>${cellHtml(r, c)}</td>`).join("")}</tr>`
+          )
+          .join("");
+      }
+
+      thead.addEventListener("click", (e) => {
+        const th = e.target.closest("th[data-key]");
+        if (!th) return;
+        const k = th.dataset.key;
+        if (sortKey === k) sortDir *= -1;
+        else {
+          sortKey = k;
+          sortDir = k === "id" ? 1 : 1;
+        }
+        [...thead.querySelectorAll("th")].forEach((h) => {
+          const key = h.dataset.key;
+          h.textContent = columns.find((c) => c.key === key).label + (sortKey === key ? (sortDir > 0 ? " ▲" : " ▼") : "");
+        });
+        renderTable();
+      });
+
+      chipHost.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chip[data-rol]");
+        if (!btn) return;
+        filterRol = btn.dataset.rol || null;
+        chipHost.querySelectorAll(".chip").forEach((b) => {
+          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+        });
+        renderTable();
+      });
+
+      document.getElementById("q").addEventListener("input", (e) => {
+        query = e.target.value;
+        renderTable();
+      });
+
+      renderTable();
+    })();
+  </script>
+</body>
+</html>
