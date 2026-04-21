@@ -1,14 +1,8 @@
 {
   "name": "edufix-validacion",
   "private": true,
-  "description": "Panel estático EduFix (index.html + data.js)",
+  "description": "Panel estático; producción: sh start.sh (Python)",
   "scripts": {
-    "start": "serve . --no-port-switching --listen tcp://0.0.0.0:${PORT:-3000}"
-  },
-  "dependencies": {
-    "serve": "^14.2.4"
-  },
-  "engines": {
-    "node": ">=18"
+    "start": "sh start.sh"
   }
 }
