@@ -310,9 +310,10 @@
 
     .stat-pill b {
       display: block;
-      font-size: 1.75rem;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
       color: var(--orange);
       margin-bottom: 0.25rem;
+      line-height: 1.2;
     }
 
     .stat-pill span {
@@ -923,9 +924,9 @@
           incidentes, lo que genera <strong>demoras en la resolución</strong> y <strong>deterioro del entorno académico</strong>.
         </p>
         <div class="stat-row reveal reveal-d4">
-          <div class="stat-pill"><b>83,3%</b><span>no supo a quién reportar un problema</span></div>
-          <div class="stat-pill"><b>91,7%</b><span>ignoró el incidente directamente</span></div>
-          <div class="stat-pill"><b>8/10</b><span>impacto promedio en la experiencia de clase</span></div>
+          <div class="stat-pill"><b>Canal de reporte</b><span>no supo a quién reportar un problema</span></div>
+          <div class="stat-pill"><b>Respuesta al incidente</b><span>ignoró el incidente directamente</span></div>
+          <div class="stat-pill"><b>Clase y entorno</b><span>impacto en la experiencia de clase</span></div>
         </div>
       </div>
     </section>
@@ -981,22 +982,6 @@
               <li>Entrevistas a personal de mantenimiento</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7 Hallazgos (síntesis, no “panel de respuestas”) -->
-    <section class="slide">
-      <div class="slide-inner">
-        <p class="eyebrow eyebrow--data reveal reveal-d1">03 · Validación — Hallazgos</p>
-        <h1 class="reveal reveal-d2">Lo que confirma la investigación</h1>
-        <p class="body-text reveal reveal-d3">Síntesis de hallazgos principales del estudio (presentación académica).</p>
-        <div class="mini-hallazgos">
-          <div class="mh reveal reveal-d4" style="--accent: #d9531e"><div class="n">83,3%</div><div class="t">No supo a quién reportar</div></div>
-          <div class="mh reveal reveal-d5" style="--accent: #e85d5d"><div class="n">91,7%</div><div class="t">Ignoró el incidente</div></div>
-          <div class="mh reveal reveal-d4" style="--accent: #1f8b63"><div class="n">8/10</div><div class="t">Impacto en la experiencia</div></div>
-          <div class="mh reveal reveal-d5" style="--accent: #1f578b"><div class="n">81,8%</div><div class="t">Detecta 1–3 desperfectos / mes</div></div>
-          <div class="mh reveal reveal-d6" style="--accent: #4ed49e"><div class="n">90,9%</div><div class="t">Usaría EduFix si tardara 30 s</div></div>
         </div>
       </div>
     </section>
