@@ -503,55 +503,6 @@
 
     .mvp-card p { margin: 0; font-size: 0.92rem; color: var(--muted); line-height: 1.4; }
 
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
-      margin-top: 1.2rem;
-    }
-
-    @media (max-width: 900px) {
-      .flow { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 500px) {
-      .flow { grid-template-columns: 1fr; }
-    }
-
-    .flow-step {
-      background: var(--card);
-      border-radius: var(--radius-surface);
-      padding: 1rem;
-      position: relative;
-      padding-top: 2.1rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: var(--shadow-elev);
-    }
-
-    .flow-step::before {
-      content: attr(data-n);
-      position: absolute;
-      top: 0.65rem;
-      left: 0.85rem;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--orange);
-      opacity: 0.9;
-    }
-
-    .flow-step h4 {
-      margin: 0 0 0.4rem;
-      font-size: 1rem;
-      color: var(--white);
-    }
-
-    .flow-step p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
     .concl-list {
       margin: 1rem 0 0;
       padding: 0;
@@ -985,32 +936,6 @@
           <div class="mvp-card reveal reveal-d6">
             <h4>Trazabilidad completa</h4>
             <p>De reporte a resolución, visible para todos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12 Flujo -->
-    <section class="slide">
-      <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">04 · Solución — Flujo de uso</p>
-        <h1 class="reveal reveal-d2">¿Cómo funciona EduFix?</h1>
-        <div class="flow">
-          <div class="flow-step reveal reveal-d3" data-n="1">
-            <h4>Detección</h4>
-            <p>El usuario detecta un incidente en las instalaciones.</p>
-          </div>
-          <div class="flow-step reveal reveal-d4" data-n="2">
-            <h4>Reporte</h4>
-            <p>Abre EduFix: foto y reporte en menos de 30 segundos.</p>
-          </div>
-          <div class="flow-step reveal reveal-d5" data-n="3">
-            <h4>Gestión</h4>
-            <p>El operario recibe tarea con foto, ubicación y prioridad.</p>
-          </div>
-          <div class="flow-step reveal reveal-d6" data-n="4">
-            <h4>Resolución</h4>
-            <p>Notificación automática al cerrarse el incidente.</p>
           </div>
         </div>
       </div>
