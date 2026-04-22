@@ -835,21 +835,30 @@
     }
 
     .signal-meta {
-      margin: 0 0 1.5rem;
+      margin: 0;
       font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
-      font-size: clamp(0.62rem, 1.1vw, 0.72rem);
-      line-height: 1.6;
+      font-size: clamp(0.6rem, 1.05vw, 0.7rem);
+      line-height: 1.65;
       letter-spacing: 0.02em;
       text-align: center;
-      color: rgba(110, 130, 125, 0.55);
+      color: rgba(100, 115, 110, 0.58);
     }
 
-    .signal-skip {
-      margin: 0;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.2);
-      letter-spacing: 0.03em;
+    /* En “sin señal”: ocultar toda la UI del deck (barra, puntos, enlaces) */
+    html.deck-signal-mode .nav-ui,
+    html.deck-signal-mode .progress-tri {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    html.deck-signal-mode .back-link,
+    html.deck-signal-mode .hint {
+      display: none;
+    }
+
+    html.deck-signal-mode .deck {
+      border-left-width: 0;
     }
   </style>
 </head>
@@ -886,21 +895,20 @@
       </div>
     </section>
 
-    <!-- 2 · sin señal (tercera diapositiva): pantallazo de error, sin guion comercial -->
-    <section class="slide slide--signal" aria-label="Pantalla sin señal de entrada (simulación)">
+    <!-- 2 · sin señal (tercera diapositiva): error de proyector (solo OSD) -->
+    <section class="slide slide--signal" aria-label="Pantalla sin señal de video">
       <div class="signal-wrap">
-        <p class="signal-input" aria-hidden="true">HDMI-1 &nbsp;·&nbsp; 1920×1080@60 &nbsp;·&nbsp; —</p>
+        <p class="signal-input" aria-hidden="true">ENTR.: HDMI-1  ·  ECO  ·  MODO: AUTO  ·  —</p>
         <div class="signal-vignette" aria-hidden="true"></div>
         <div class="signal-scan" aria-hidden="true"></div>
         <div class="signal-bars" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
         <div class="signal-inner">
-          <p class="signal-label">NO SIGNAL</p>
-          <p class="signal-osd">SIN ENTRADA DE SEÑAL</p>
-          <p class="signal-osd-2">No se detecta sincronización en la entrada de video</p>
-          <p class="signal-meta">INPUT STATUS · NONE<br />SYNC · LOST</p>
-          <p class="signal-skip" id="signal-skip-hint">Siguiente → o espacio · continúa automáticamente</p>
+          <p class="signal-label">SIN SEÑAL</p>
+          <p class="signal-osd">No se recibe señal en esta entrada</p>
+          <p class="signal-osd-2">Compruebe el cable. Encienda el equipo conectado o cambie de fuente.</p>
+          <p class="signal-meta">ENTR. ACTIVA: HDMI-1<br />SINCRONIZACIÓN: NO DETECTADA · HDCP: —</p>
         </div>
       </div>
     </section>
@@ -1189,10 +1197,6 @@
       let signalTimer = null;
       let signalAutoOnce = true;
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const skipHint = document.getElementById("signal-skip-hint");
-      if (skipHint && prefersReducedMotion) {
-        skipHint.textContent = "Siguiente → o espacio para continuar";
-      }
 
       function clearSignalTimer() {
         if (signalTimer) {
@@ -1214,6 +1218,7 @@
         document.getElementById("counter").textContent = idx + 1 + " / " + total;
         dotBtns.forEach((b, j) => b.classList.toggle("is-on", j === idx));
         document.documentElement.style.setProperty("--prog", String((idx + 1) / total));
+        document.documentElement.classList.toggle("deck-signal-mode", idx === SIGNAL_SLIDE_INDEX);
 
         if (prevIdx === SIGNAL_SLIDE_INDEX && idx !== SIGNAL_SLIDE_INDEX) {
           signalAutoOnce = false;
