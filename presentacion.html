@@ -690,9 +690,10 @@
       50% { box-shadow: 0 0 0 7px rgba(217, 83, 30, 0.08); }
     }
 
-    /* —— Pantallazo “sin señal” (error de video, sin discurso) —— */
+    /* —— Pantallazo azul “NO SIGNAL” (estilo pérdida de señal en proyector) —— */
     .slide.slide--signal {
-      background: #020203;
+      background: #0000aa;
+      background: linear-gradient(168deg, #0a4fc4 0%, #0028a0 40%, #001878 100%);
       align-items: stretch;
     }
 
@@ -716,7 +717,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      opacity: 0.09;
+      opacity: 0.05;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
       background-size: 160px 160px;
     }
@@ -725,7 +726,8 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(ellipse 75% 65% at 50% 45%, transparent 0%, rgba(0, 0, 0, 0.55) 100%);
+      background: radial-gradient(ellipse 100% 80% at 50% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.22) 100%);
     }
 
     .signal-scan {
@@ -736,10 +738,10 @@
         0deg,
         transparent 0px,
         transparent 2px,
-        rgba(0, 0, 0, 0.12) 2px,
-        rgba(0, 0, 0, 0.12) 3px
+        rgba(255, 255, 255, 0.04) 2px,
+        rgba(255, 255, 255, 0.04) 3px
       );
-      opacity: 0.4;
+      opacity: 0.5;
       animation: signalScan 10s linear infinite;
     }
 
@@ -749,33 +751,23 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .signal-scan { animation: none; opacity: 0.2; }
+      .signal-scan { animation: none; opacity: 0.25; }
     }
 
-    .signal-bars {
+    .signal-barline {
       position: absolute;
-      bottom: 4.75rem;
-      left: 0;
-      right: 0;
-      height: 12px;
-      display: flex;
-      opacity: 0.72;
+      bottom: 3.25rem;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
       pointer-events: none;
     }
-
-    .signal-bars span { flex: 1; min-width: 0; }
-    .signal-bars span:nth-child(1) { background: #c8c8c8; }
-    .signal-bars span:nth-child(2) { background: #c8b800; }
-    .signal-bars span:nth-child(3) { background: #00a8c8; }
-    .signal-bars span:nth-child(4) { background: #00a050; }
-    .signal-bars span:nth-child(5) { background: #c850a0; }
-    .signal-bars span:nth-child(6) { background: #c82828; }
-    .signal-bars span:nth-child(7) { background: #2828c8; }
 
     .signal-inner {
       position: relative;
       z-index: 1;
-      max-width: 32rem;
+      max-width: 36rem;
     }
 
     .signal-input {
@@ -783,22 +775,24 @@
       top: clamp(0.5rem, 2vw, 1rem);
       left: clamp(0.5rem, 2vw, 1rem);
       z-index: 2;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(120, 200, 140, 0.55);
+      color: rgba(255, 255, 255, 0.45);
       text-align: left;
     }
 
     .signal-label {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.9rem, 5vw, 2.85rem);
       font-weight: 800;
-      letter-spacing: 0.28em;
-      text-indent: 0.28em;
-      color: rgba(240, 240, 245, 0.94);
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.8), 0 0 20px rgba(200, 60, 50, 0.15);
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+      letter-spacing: 0.22em;
+      text-indent: 0.22em;
+      color: #f0f6ff;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -817,31 +811,41 @@
       .signal-label { animation: none; }
     }
 
-    .signal-osd {
-      margin: 0 0 0.4rem;
-      font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+    .signal-title-es {
+      margin: 0 0 0.85rem;
+      font-size: clamp(0.9rem, 1.8vw, 1.1rem);
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(200, 200, 210, 0.5);
+      text-indent: 0.18em;
+      color: rgba(200, 220, 255, 0.78);
+    }
+
+    .signal-osd {
+      margin: 0 0 0.5rem;
+      font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(220, 230, 255, 0.75);
     }
 
     .signal-osd-2 {
-      margin: 0 0 1.25rem;
-      font-size: clamp(0.7rem, 1.2vw, 0.8rem);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(150, 155, 170, 0.42);
+      margin: 0 0 1.1rem;
+      font-size: clamp(0.68rem, 1.2vw, 0.8rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      color: rgba(180, 200, 240, 0.65);
     }
 
     .signal-meta {
       margin: 0;
       font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
-      font-size: clamp(0.6rem, 1.05vw, 0.7rem);
-      line-height: 1.65;
+      font-size: clamp(0.58rem, 1vw, 0.68rem);
+      line-height: 1.6;
       letter-spacing: 0.02em;
       text-align: center;
-      color: rgba(100, 115, 110, 0.58);
+      color: rgba(150, 185, 240, 0.55);
     }
 
     /* En “sin señal”: ocultar toda la UI del deck (barra, puntos, enlaces) */
@@ -895,20 +899,19 @@
       </div>
     </section>
 
-    <!-- 2 · sin señal (tercera diapositiva): error de proyector (solo OSD) -->
-    <section class="slide slide--signal" aria-label="Pantalla sin señal de video">
+    <!-- 2 · pantalla azul NO SIGNAL (tercera diapositiva) -->
+    <section class="slide slide--signal" aria-label="Pantalla azul sin señal de video">
       <div class="signal-wrap">
-        <p class="signal-input" aria-hidden="true">ENTR.: HDMI-1  ·  ECO  ·  MODO: AUTO  ·  —</p>
+        <p class="signal-input" aria-hidden="true">INPUT: HDMI-1 · 1080P60  ·  —</p>
         <div class="signal-vignette" aria-hidden="true"></div>
         <div class="signal-scan" aria-hidden="true"></div>
-        <div class="signal-bars" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
+        <div class="signal-barline" aria-hidden="true"></div>
         <div class="signal-inner">
-          <p class="signal-label">SIN SEÑAL</p>
-          <p class="signal-osd">No se recibe señal en esta entrada</p>
-          <p class="signal-osd-2">Compruebe el cable. Encienda el equipo conectado o cambie de fuente.</p>
-          <p class="signal-meta">ENTR. ACTIVA: HDMI-1<br />SINCRONIZACIÓN: NO DETECTADA · HDCP: —</p>
+          <p class="signal-label">NO SIGNAL</p>
+          <p class="signal-title-es">SIN SEÑAL</p>
+          <p class="signal-osd">No se recibe señal de video en esta entrada</p>
+          <p class="signal-osd-2">Compruebe el cable y la fuente de imagen, o pruebe otra entrada con el mando a distancia.</p>
+          <p class="signal-meta">ENTR. ACTIVA: HDMI-1 / SYNC: NINGUNO / HDCP: —</p>
         </div>
       </div>
     </section>
