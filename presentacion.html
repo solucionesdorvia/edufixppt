@@ -584,6 +584,11 @@
     }
 
     .back-link:hover { text-decoration: underline; }
+
+    html.is-deck-fullscreen .back-link,
+    html.is-deck-fullscreen .hint {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -949,6 +954,15 @@
           else document.exitFullscreen();
         }
       });
+
+      function syncDeckFullscreenChrome() {
+        const active =
+          document.fullscreenElement || document.webkitFullscreenElement || null;
+        document.documentElement.classList.toggle("is-deck-fullscreen", Boolean(active));
+      }
+      document.addEventListener("fullscreenchange", syncDeckFullscreenChrome);
+      document.addEventListener("webkitfullscreenchange", syncDeckFullscreenChrome);
+      syncDeckFullscreenChrome();
 
       let tx0 = null;
       document.getElementById("deck").addEventListener("touchstart", (e) => {
