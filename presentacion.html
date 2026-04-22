@@ -295,18 +295,19 @@
     .mh .n { font-size: 1.35rem; font-weight: 800; color: var(--white); }
     .mh .t { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.25; font-weight: 600; }
 
-    .bench-wrap { overflow-x: auto; margin-top: 1rem; }
+    .bench-wrap { overflow-x: auto; margin-top: 0.75rem; }
     .bench {
       width: 100%;
-      min-width: 560px;
+      min-width: 700px;
       border-collapse: collapse;
-      font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+      font-size: clamp(0.9rem, 2.1vw, 1.12rem);
     }
 
     .bench th, .bench td {
       border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 0.55rem 0.65rem;
+      padding: 0.85rem 0.95rem;
       text-align: center;
+      vertical-align: middle;
     }
 
     .bench th:first-child, .bench td:first-child {
@@ -319,6 +320,7 @@
       color: var(--white);
       font-weight: 800;
     }
+    .bench th small { display: block; margin-top: 0.2rem; font-size: 0.72em; font-weight: 600; color: var(--muted); }
 
     .bench td { color: var(--muted); }
 
