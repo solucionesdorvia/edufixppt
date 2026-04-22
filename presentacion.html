@@ -816,9 +816,37 @@
   <p class="hint">← → · Espacio · F pantalla completa</p>
 
   <div class="deck" id="deck">
-    <!-- 0 Gancho · sin señal -->
+    <!-- 0 Portada (alineada a tu PPT) -->
+    <section class="slide is-active slide--hero">
+      <div class="slide-inner center">
+        <p class="eyebrow reveal reveal-d1">Seminario de Integración Profesional · UADE</p>
+        <h1 class="reveal reveal-d2"><span class="accent">EduFix</span></h1>
+        <p class="sub reveal reveal-d3 hero-line">Gestión digital de incidentes en instituciones educativas</p>
+        <p class="sub reveal reveal-d4" style="margin-top: 1.5rem; font-size: 1rem; color: var(--faint)">
+          Entrega parcial N.° 1 · Romero Victorica · Sánchez Zinny · Blasco Estrada · Doroszuk Visillac · Aizpun<br />
+          22 de abril de 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- 1 Agenda -->
+    <section class="slide">
+      <div class="slide-inner">
+        <p class="eyebrow reveal reveal-d1">EduFix — Entrega parcial N.° 1</p>
+        <h1 class="reveal reveal-d2">Agenda</h1>
+        <div class="agenda-grid">
+          <div class="ag-item reveal reveal-d3"><span>01</span>Introducción</div>
+          <div class="ag-item reveal reveal-d4"><span>02</span>Problemática</div>
+          <div class="ag-item reveal reveal-d5"><span>03</span>Validación e investigación</div>
+          <div class="ag-item reveal reveal-d6"><span>04</span>Solución</div>
+          <div class="ag-item reveal reveal-d7"><span>05</span>Conclusión</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 Gancho · sin señal (tercera diapositiva) -->
     <section
-      class="slide is-active slide--signal"
+      class="slide slide--signal"
       aria-label="Introducción: metáfora de un reporte que no conecta"
     >
       <div class="signal-wrap">
@@ -838,35 +866,7 @@
       </div>
     </section>
 
-    <!-- 1 Portada (alineada a tu PPT) -->
-    <section class="slide slide--hero">
-      <div class="slide-inner center">
-        <p class="eyebrow reveal reveal-d1">Seminario de Integración Profesional · UADE</p>
-        <h1 class="reveal reveal-d2"><span class="accent">EduFix</span></h1>
-        <p class="sub reveal reveal-d3 hero-line">Gestión digital de incidentes en instituciones educativas</p>
-        <p class="sub reveal reveal-d4" style="margin-top: 1.5rem; font-size: 1rem; color: var(--faint)">
-          Entrega parcial N.° 1 · Romero Victorica · Sánchez Zinny · Blasco Estrada · Doroszuk Visillac · Aizpun<br />
-          22 de abril de 2026
-        </p>
-      </div>
-    </section>
-
-    <!-- 2 Agenda -->
-    <section class="slide">
-      <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">EduFix — Entrega parcial N.° 1</p>
-        <h1 class="reveal reveal-d2">Agenda</h1>
-        <div class="agenda-grid">
-          <div class="ag-item reveal reveal-d3"><span>01</span>Introducción</div>
-          <div class="ag-item reveal reveal-d4"><span>02</span>Problemática</div>
-          <div class="ag-item reveal reveal-d5"><span>03</span>Validación e investigación</div>
-          <div class="ag-item reveal reveal-d6"><span>04</span>Solución</div>
-          <div class="ag-item reveal reveal-d7"><span>05</span>Conclusión</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2 Intro sección -->
+    <!-- 3 Intro sección -->
     <section class="slide slide--section">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">01 · Introducción</p>
@@ -874,7 +874,7 @@
       </div>
     </section>
 
-    <!-- 3 Qué es EduFix -->
+    <!-- 4 Qué es EduFix -->
     <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">01 · Introducción</p>
@@ -1135,6 +1135,7 @@
     (function () {
       const slides = [...document.querySelectorAll(".slide")];
       const total = slides.length;
+      const SIGNAL_SLIDE_INDEX = 2;
       let idx = 0;
 
       const data = window.SURVEY_DATA;
@@ -1191,16 +1192,17 @@
         dotBtns.forEach((b, j) => b.classList.toggle("is-on", j === idx));
         document.documentElement.style.setProperty("--prog", String((idx + 1) / total));
 
-        if (prevIdx === 0 && idx !== 0) {
+        if (prevIdx === SIGNAL_SLIDE_INDEX && idx !== SIGNAL_SLIDE_INDEX) {
           signalAutoOnce = false;
         }
         if (
-          idx === 0 &&
-          slides[0].classList.contains("slide--signal") &&
+          idx === SIGNAL_SLIDE_INDEX &&
+          slides[SIGNAL_SLIDE_INDEX] &&
+          slides[SIGNAL_SLIDE_INDEX].classList.contains("slide--signal") &&
           signalAutoOnce &&
           !prefersReducedMotion
         ) {
-          signalTimer = setTimeout(() => go(1), 5200);
+          signalTimer = setTimeout(() => go(SIGNAL_SLIDE_INDEX + 1), 5200);
         }
       }
 
