@@ -679,7 +679,6 @@
             </ul>
           </div>
         </div>
-        <p class="footnote reveal reveal-d5" id="validacion-extra"></p>
       </div>
     </section>
 
@@ -857,16 +856,7 @@
 
       const data = window.SURVEY_DATA;
       const meta = window.SURVEY_METADATA;
-      const extra = document.getElementById("validacion-extra");
       const graciasX = document.getElementById("gracias-extra");
-      if (data && data.length && extra) {
-        extra.textContent =
-          "Además, el panel técnico del proyecto incluye una muestra reproducible de " +
-          data.length +
-          " filas para demos (no es el foco de esta presentación).";
-      } else if (extra) {
-        extra.textContent = "";
-      }
       if (graciasX) {
         graciasX.textContent = "Basado en las encuestas realizadas a la comunidad UADE.";
       }
