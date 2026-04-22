@@ -10,15 +10,20 @@
   <style>
     :root {
       --navy: #0a1c36;
+      --navy-deeper: #061228;
       --orange: #d9531e;
       --teal: #1f8b63;
       --blue: #1f578b;
       --white: #fff;
-      --muted: rgba(255, 255, 255, 0.76);
-      --faint: rgba(255, 255, 255, 0.42);
+      /* Cuerpo: más claro. Pie/labels: más apagado (jerarquía a distancia) */
+      --muted: rgba(255, 255, 255, 0.8);
+      --faint: rgba(255, 255, 255, 0.32);
       --card: rgba(18, 36, 66, 0.92);
       --font: "Montserrat", system-ui, sans-serif;
       --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-snap: cubic-bezier(0.25, 1, 0.4, 1);
+      --radius-surface: 14px;
+      --shadow-elev: 0 12px 40px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.06);
     }
 
     * { box-sizing: border-box; }
@@ -33,13 +38,43 @@
       height: 100%;
       overflow: hidden;
       font-family: var(--font);
-      background: var(--navy);
+      background: var(--navy-deeper);
       color: var(--white);
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* Luminosidad sutil (proyector) + grano 1% — un solo “ambiente” */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 55% at 8% 6%, rgba(217, 83, 30, 0.11) 0%, transparent 52%),
+        radial-gradient(ellipse 75% 50% at 92% 88%, rgba(31, 139, 99, 0.09) 0%, transparent 50%),
+        radial-gradient(ellipse 55% 40% at 50% 45%, rgba(31, 87, 139, 0.07) 0%, transparent 60%),
+        linear-gradient(180deg, #0a1c36 0%, #050f20 100%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
     }
 
     .deck {
       position: fixed;
       inset: 0;
+      z-index: 1;
       border-left: 6px solid var(--orange);
     }
 
@@ -53,25 +88,84 @@
       justify-content: center;
       opacity: 0;
       visibility: hidden;
-      transform: scale(1.03);
-      transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out), visibility 0.55s;
+      transform: scale(1.02) translateY(6px);
+      transition:
+        opacity 0.5s var(--ease-snap),
+        transform 0.55s var(--ease-snap),
+        visibility 0.5s;
       pointer-events: none;
       z-index: 0;
+    }
+
+    .slide--section {
+      transition: opacity 0.38s var(--ease-snap), transform 0.42s var(--ease-snap), visibility 0.38s;
+    }
+
+    .slide--section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(
+        150deg,
+        rgba(31, 87, 139, 0.14) 0%,
+        rgba(8, 18, 40, 0.35) 38%,
+        rgba(5, 15, 32, 0.65) 100%
+      );
+      border-top: 1px solid rgba(31, 87, 139, 0.25);
+    }
+
+    .slide--outro::before {
+      background: linear-gradient(165deg, rgba(217, 83, 30, 0.1) 0%, rgba(5, 15, 32, 0.55) 60%, #050f20 100%);
     }
 
     .slide.is-active {
       opacity: 1;
       visibility: visible;
-      transform: scale(1);
+      transform: scale(1) translateY(0);
       pointer-events: auto;
       z-index: 1;
     }
 
     .slide-inner {
       width: min(1240px, 100%);
+      max-width: 1240px;
       max-height: 100%;
       overflow-y: auto;
+      margin: 0 auto;
+      padding-top: 0.35rem;
     }
+
+    .slide-section-inner {
+      min-height: min(50vh, 22rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .section-kicker {
+      font-size: clamp(3.5rem, 10vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0 0 0.5rem;
+      color: var(--blue);
+      text-shadow: 0 0 48px rgba(31, 87, 139, 0.7);
+      letter-spacing: -0.04em;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4.2vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0;
+      max-width: 20ch;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title .accent { color: var(--orange); }
 
     .slide.is-active .reveal {
       animation: revealIn 0.75s var(--ease-out) both;
@@ -102,10 +196,15 @@
     .eyebrow {
       font-size: clamp(0.78rem, 1.75vw, 0.95rem);
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
       color: var(--orange);
       margin: 0 0 0.45rem;
+    }
+
+    /* Datos y métricas: acento azul (evitar competir con naranja “marca” / teal “positivo producto”) */
+    .eyebrow--data {
+      color: rgba(120, 170, 220, 0.95);
     }
 
     h1 {
@@ -120,7 +219,7 @@
 
     .sub {
       font-size: clamp(1.05rem, 2.5vw, 1.6rem);
-      font-weight: 600;
+      font-weight: 500;
       color: var(--muted);
       line-height: 1.4;
       margin: 0;
@@ -128,6 +227,7 @@
 
     .body-text {
       font-size: clamp(1.02rem, 2.1vw, 1.28rem);
+      font-weight: 500;
       color: var(--muted);
       line-height: 1.55;
       max-width: 62ch;
@@ -147,12 +247,14 @@
 
     .ag-item {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 1.1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-left: 4px solid var(--teal);
       font-weight: 700;
       font-size: 1.05rem;
       color: var(--muted);
+      box-shadow: var(--shadow-elev);
     }
 
     .ag-item span {
@@ -174,6 +276,7 @@
       padding-left: 1.35rem;
       margin-bottom: 0.75rem;
       font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 500;
       color: var(--muted);
       line-height: 1.45;
     }
@@ -198,10 +301,11 @@
 
     .stat-pill {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 0.9rem 1.2rem;
       border: 1px solid rgba(255, 255, 255, 0.12);
       flex: 1 1 200px;
+      box-shadow: var(--shadow-elev);
     }
 
     .stat-pill b {
@@ -230,9 +334,11 @@
 
     .affect-card {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 1.15rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-top: 4px solid var(--blue);
+      box-shadow: var(--shadow-elev);
     }
 
     .affect-card h4 {
@@ -261,9 +367,10 @@
 
     .box {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 1.2rem 1.3rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-elev);
     }
 
     .box h4 {
@@ -284,17 +391,19 @@
 
     .mini-hallazgos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 0.75rem;
       margin-top: 1rem;
     }
 
     .mh {
       background: rgba(255, 255, 255, 0.06);
-      border-radius: 10px;
+      border-radius: var(--radius-surface);
       padding: 0.75rem 0.85rem;
       text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-bottom: 3px solid var(--accent, var(--orange));
+      box-shadow: var(--shadow-elev);
     }
 
     .mh .n { font-size: 1.45rem; font-weight: 800; color: var(--white); }
@@ -307,10 +416,8 @@
       background: linear-gradient(160deg, rgba(22, 42, 78, 0.98) 0%, rgba(8, 18, 40, 0.99) 100%);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-left: 4px solid var(--orange);
-      border-radius: 16px;
-      box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(217, 83, 30, 0.14) inset;
+      border-radius: var(--radius-surface);
+      box-shadow: var(--shadow-elev);
     }
 
     .bench {
@@ -381,9 +488,11 @@
 
     .mvp-card {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-left: 5px solid var(--orange);
+      box-shadow: var(--shadow-elev);
     }
 
     .mvp-card h4 {
@@ -411,11 +520,12 @@
 
     .flow-step {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: var(--radius-surface);
       padding: 1rem;
       position: relative;
       padding-top: 2.1rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-elev);
     }
 
     .flow-step::before {
@@ -455,6 +565,7 @@
       padding: 0.85rem 0 0.85rem 3.2rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       font-size: clamp(0.95rem, 1.85vw, 1.1rem);
+      font-weight: 500;
       color: var(--muted);
       line-height: 1.45;
     }
@@ -474,9 +585,9 @@
 
     .footnote {
       margin-top: 1rem;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--faint);
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .nav-ui {
@@ -543,6 +654,7 @@
     .dots button.is-on {
       background: var(--orange);
       transform: scale(1.2);
+      animation: navDotPulse 2.2s var(--ease-snap) infinite;
     }
 
     .progress-tri {
@@ -561,7 +673,7 @@
       background: var(--orange);
       transform-origin: left;
       transform: scaleX(var(--prog, 0));
-      transition: transform 0.45s var(--ease-out);
+      transition: transform 0.75s var(--ease-snap);
     }
 
     .progress-tri span:nth-child(2) { flex: 1; background: var(--teal); }
@@ -594,6 +706,37 @@
     html.is-deck-fullscreen .hint {
       display: none;
     }
+
+    /* —— Portada: subrayado que “entra” en el eslogan —— */
+    .slide--hero h1 {
+      text-shadow: 0 4px 36px rgba(0, 0, 0, 0.35);
+    }
+    .slide--hero .hero-line {
+      position: relative;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+    .slide--hero.is-active .hero-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0.05em;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--orange) 0%, rgba(217, 83, 30, 0.25) 100%);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: heroUnderline 0.75s 0.48s var(--ease-snap) forwards;
+    }
+    @keyframes heroUnderline {
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes navDotPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(217, 83, 30, 0.35); }
+      50% { box-shadow: 0 0 0 7px rgba(217, 83, 30, 0.08); }
+    }
   </style>
 </head>
 <body>
@@ -602,11 +745,11 @@
 
   <div class="deck" id="deck">
     <!-- 0 Portada (alineada a tu PPT) -->
-    <section class="slide is-active" data-i="0">
+    <section class="slide is-active slide--hero">
       <div class="slide-inner center">
         <p class="eyebrow reveal reveal-d1">Seminario de Integración Profesional · UADE</p>
         <h1 class="reveal reveal-d2"><span class="accent">EduFix</span></h1>
-        <p class="sub reveal reveal-d3">Gestión digital de incidentes en instituciones educativas</p>
+        <p class="sub reveal reveal-d3 hero-line">Gestión digital de incidentes en instituciones educativas</p>
         <p class="sub reveal reveal-d4" style="margin-top: 1.5rem; font-size: 1rem; color: var(--faint)">
           Entrega parcial N.° 1 · Romero Victorica · Sánchez Zinny · Blasco Estrada · Doroszuk Visillac · Aizpun<br />
           22 de abril de 2026
@@ -615,7 +758,7 @@
     </section>
 
     <!-- 1 Agenda -->
-    <section class="slide" data-i="1">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">EduFix — Entrega parcial N.° 1</p>
         <h1 class="reveal reveal-d2">Agenda</h1>
@@ -630,7 +773,7 @@
     </section>
 
     <!-- 2 Intro sección -->
-    <section class="slide" data-i="2">
+    <section class="slide slide--section">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">01 · Introducción</p>
         <h1 class="reveal reveal-d2">¿Qué es EduFix y cuál es el contexto?</h1>
@@ -638,7 +781,7 @@
     </section>
 
     <!-- 3 Qué es EduFix -->
-    <section class="slide" data-i="3">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">01 · Introducción</p>
         <h1 class="reveal reveal-d2">¿Qué es <span class="accent">EduFix</span>?</h1>
@@ -668,8 +811,16 @@
       </div>
     </section>
 
+    <!-- 3b Corte · Problemática -->
+    <section class="slide slide--section">
+      <div class="slide-inner center slide-section-inner">
+        <p class="section-kicker reveal reveal-d1">02</p>
+        <h1 class="section-title reveal reveal-d2">Problemática</h1>
+      </div>
+    </section>
+
     <!-- 4 Problemática -->
-    <section class="slide" data-i="4">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">02 · Problemática</p>
         <h1 class="reveal reveal-d2">Definición del problema</h1>
@@ -686,7 +837,7 @@
     </section>
 
     <!-- 5 A quién afecta -->
-    <section class="slide" data-i="5">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">02 · Problemática</p>
         <h1 class="reveal reveal-d2">¿A quién afecta?</h1>
@@ -707,10 +858,18 @@
       </div>
     </section>
 
+    <!-- 5b Corte · Validación -->
+    <section class="slide slide--section">
+      <div class="slide-inner center slide-section-inner">
+        <p class="section-kicker reveal reveal-d1">03</p>
+        <h1 class="section-title reveal reveal-d2">Validación e<br />investigación</h1>
+      </div>
+    </section>
+
     <!-- 6 Validación metodología -->
-    <section class="slide" data-i="6">
+    <section class="slide">
       <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">03 · Validación e investigación</p>
+        <p class="eyebrow eyebrow--data reveal reveal-d1">03 · Validación e investigación</p>
         <h1 class="reveal reveal-d2">Metodología</h1>
         <div class="two-col">
           <div class="box reveal reveal-d3">
@@ -733,9 +892,9 @@
     </section>
 
     <!-- 7 Hallazgos (síntesis, no “panel de respuestas”) -->
-    <section class="slide" data-i="7">
+    <section class="slide">
       <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">03 · Validación — Hallazgos</p>
+        <p class="eyebrow eyebrow--data reveal reveal-d1">03 · Validación — Hallazgos</p>
         <h1 class="reveal reveal-d2">Lo que confirma la investigación</h1>
         <p class="body-text reveal reveal-d3">Síntesis de hallazgos principales del estudio (presentación académica).</p>
         <div class="mini-hallazgos">
@@ -749,9 +908,9 @@
     </section>
 
     <!-- 8 Benchmarking -->
-    <section class="slide" data-i="8">
+    <section class="slide">
       <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">03 · Validación — Benchmarking</p>
+        <p class="eyebrow eyebrow--data reveal reveal-d1">03 · Validación — Benchmarking</p>
         <h1 class="reveal reveal-d2">Análisis competitivo</h1>
         <div class="bench-wrap reveal reveal-d3">
           <table class="bench">
@@ -778,9 +937,9 @@
     </section>
 
     <!-- 9 Curva de valor -->
-    <section class="slide" data-i="9">
+    <section class="slide">
       <div class="slide-inner">
-        <p class="eyebrow reveal reveal-d1">03 · Validación — Curva de valor</p>
+        <p class="eyebrow eyebrow--data reveal reveal-d1">03 · Validación — Curva de valor</p>
         <h1 class="reveal reveal-d2">Espacio en el mercado</h1>
         <p class="body-text reveal reveal-d3">
           <strong>EduFix ocupa un espacio no cubierto:</strong> combina accesibilidad móvil con trazabilidad formal,
@@ -789,8 +948,16 @@
       </div>
     </section>
 
+    <!-- 9b Corte · Solución -->
+    <section class="slide slide--section">
+      <div class="slide-inner center slide-section-inner">
+        <p class="section-kicker reveal reveal-d1">04</p>
+        <h1 class="section-title reveal reveal-d2">Solución</h1>
+      </div>
+    </section>
+
     <!-- 10 Solución -->
-    <section class="slide" data-i="10">
+    <section class="slide slide--section">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">04 · Solución</p>
         <h1 class="reveal reveal-d2"><span class="accent">EduFix</span> — Propuesta de valor y diseño del producto</h1>
@@ -798,7 +965,7 @@
     </section>
 
     <!-- 11 MVP -->
-    <section class="slide" data-i="11">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">04 · Solución — Priorización</p>
         <h1 class="reveal reveal-d2">Funcionalidades core (MVP)</h1>
@@ -824,7 +991,7 @@
     </section>
 
     <!-- 12 Flujo -->
-    <section class="slide" data-i="12">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">04 · Solución — Flujo de uso</p>
         <h1 class="reveal reveal-d2">¿Cómo funciona EduFix?</h1>
@@ -850,7 +1017,7 @@
     </section>
 
     <!-- 13 Conclusión -->
-    <section class="slide" data-i="13">
+    <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">05 · Conclusión</p>
         <h1 class="reveal reveal-d2">Aprendizajes y próximos pasos</h1>
@@ -873,7 +1040,7 @@
     </section>
 
     <!-- 14 Gracias -->
-    <section class="slide" data-i="14">
+    <section class="slide slide--outro">
       <div class="slide-inner center">
         <h1 class="reveal reveal-d1"><span class="accent">EduFix</span></h1>
         <p class="sub reveal reveal-d2">¡Gracias!</p>
