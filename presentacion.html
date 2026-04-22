@@ -690,9 +690,9 @@
       50% { box-shadow: 0 0 0 7px rgba(217, 83, 30, 0.08); }
     }
 
-    /* —— Apertura estilo “sin señal” (gancho → portada) —— */
+    /* —— Pantallazo “sin señal” (error de video, sin discurso) —— */
     .slide.slide--signal {
-      background: #050508;
+      background: #020203;
       align-items: stretch;
     }
 
@@ -716,9 +716,16 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      opacity: 0.055;
+      opacity: 0.09;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
       background-size: 160px 160px;
+    }
+
+    .signal-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 75% 65% at 50% 45%, transparent 0%, rgba(0, 0, 0, 0.55) 100%);
     }
 
     .signal-scan {
@@ -732,7 +739,7 @@
         rgba(0, 0, 0, 0.12) 2px,
         rgba(0, 0, 0, 0.12) 3px
       );
-      opacity: 0.35;
+      opacity: 0.4;
       animation: signalScan 10s linear infinite;
     }
 
@@ -768,47 +775,81 @@
     .signal-inner {
       position: relative;
       z-index: 1;
-      max-width: 36rem;
+      max-width: 32rem;
+    }
+
+    .signal-input {
+      position: absolute;
+      top: clamp(0.5rem, 2vw, 1rem);
+      left: clamp(0.5rem, 2vw, 1rem);
+      z-index: 2;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(120, 200, 140, 0.55);
+      text-align: left;
     }
 
     .signal-label {
-      margin: 0 0 0.35rem;
-      font-size: clamp(1.85rem, 5.5vw, 2.75rem);
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
       font-weight: 800;
-      letter-spacing: 0.35em;
-      text-indent: 0.35em;
-      color: rgba(255, 255, 255, 0.92);
-      text-shadow: 0 0 24px rgba(255, 80, 80, 0.25);
+      letter-spacing: 0.28em;
+      text-indent: 0.28em;
+      color: rgba(240, 240, 245, 0.94);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.8), 0 0 20px rgba(200, 60, 50, 0.15);
     }
 
-    .signal-sub {
-      margin: 0 0 1.25rem;
-      font-size: clamp(0.72rem, 1.5vw, 0.82rem);
-      font-weight: 700;
-      letter-spacing: 0.2em;
+    @media (prefers-reduced-motion: no-preference) {
+      .signal-label {
+        animation: signalJitter 7s ease-in-out infinite;
+      }
+    }
+
+    @keyframes signalJitter {
+      0%, 88%, 100% { transform: translate(0, 0); }
+      90% { transform: translate(0.5px, 0); }
+      92% { transform: translate(-0.5px, 0.5px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .signal-label { animation: none; }
+    }
+
+    .signal-osd {
+      margin: 0 0 0.4rem;
+      font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--faint);
+      color: rgba(200, 200, 210, 0.5);
     }
 
-    .signal-hook {
-      margin: 0 0 1.5rem;
-      font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+    .signal-osd-2 {
+      margin: 0 0 1.25rem;
+      font-size: clamp(0.7rem, 1.2vw, 0.8rem);
       font-weight: 500;
-      line-height: 1.45;
-      color: var(--muted);
+      letter-spacing: 0.04em;
+      color: rgba(150, 155, 170, 0.42);
     }
 
-    .signal-hook strong {
-      color: var(--white);
-      font-weight: 700;
+    .signal-meta {
+      margin: 0 0 1.5rem;
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+      font-size: clamp(0.62rem, 1.1vw, 0.72rem);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      text-align: center;
+      color: rgba(110, 130, 125, 0.55);
     }
 
     .signal-skip {
       margin: 0;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.28);
-      letter-spacing: 0.04em;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.2);
+      letter-spacing: 0.03em;
     }
   </style>
 </head>
@@ -845,23 +886,20 @@
       </div>
     </section>
 
-    <!-- 2 Gancho · sin señal (tercera diapositiva) -->
-    <section
-      class="slide slide--signal"
-      aria-label="Introducción: metáfora de un reporte que no conecta"
-    >
+    <!-- 2 · sin señal (tercera diapositiva): pantallazo de error, sin guion comercial -->
+    <section class="slide slide--signal" aria-label="Pantalla sin señal de entrada (simulación)">
       <div class="signal-wrap">
+        <p class="signal-input" aria-hidden="true">HDMI-1 &nbsp;·&nbsp; 1920×1080@60 &nbsp;·&nbsp; —</p>
+        <div class="signal-vignette" aria-hidden="true"></div>
         <div class="signal-scan" aria-hidden="true"></div>
         <div class="signal-bars" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
         <div class="signal-inner">
-          <p class="signal-label">SIN SEÑAL</p>
-          <p class="signal-sub">No signal · sin canal</p>
-          <p class="signal-hook">
-            ¿Te imaginas un campus donde el reporte <strong>no llega a ningún lado</strong>? Algo así se siente cuando
-            no hay un canal formal y trazable.
-          </p>
+          <p class="signal-label">NO SIGNAL</p>
+          <p class="signal-osd">SIN ENTRADA DE SEÑAL</p>
+          <p class="signal-osd-2">No se detecta sincronización en la entrada de video</p>
+          <p class="signal-meta">INPUT STATUS · NONE<br />SYNC · LOST</p>
           <p class="signal-skip" id="signal-skip-hint">Siguiente → o espacio · continúa automáticamente</p>
         </div>
       </div>
