@@ -1154,7 +1154,7 @@
 
   <div class="progress-tri" aria-hidden="true"><span></span><span></span><span></span></div>
 
-  <div class="nav-ui">
+  <div class="nav-ui" id="nav-ui">
     <button type="button" id="btn-prev" aria-label="Anterior">← Anterior</button>
     <div class="dots" id="dots"></div>
     <span class="counter" id="counter"></span>
@@ -1194,20 +1194,9 @@
         });
       }
 
-      let signalTimer = null;
-      let signalAutoOnce = true;
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      function clearSignalTimer() {
-        if (signalTimer) {
-          clearTimeout(signalTimer);
-          signalTimer = null;
-        }
-      }
+      const navBar = document.getElementById("nav-ui");
 
       function go(i) {
-        clearSignalTimer();
-        const prevIdx = idx;
         i = Math.max(0, Math.min(total - 1, i));
         slides[idx].classList.remove("is-active");
         idx = i;
@@ -1218,19 +1207,15 @@
         document.getElementById("counter").textContent = idx + 1 + " / " + total;
         dotBtns.forEach((b, j) => b.classList.toggle("is-on", j === idx));
         document.documentElement.style.setProperty("--prog", String((idx + 1) / total));
-        document.documentElement.classList.toggle("deck-signal-mode", idx === SIGNAL_SLIDE_INDEX);
-
-        if (prevIdx === SIGNAL_SLIDE_INDEX && idx !== SIGNAL_SLIDE_INDEX) {
-          signalAutoOnce = false;
-        }
-        if (
-          idx === SIGNAL_SLIDE_INDEX &&
-          slides[SIGNAL_SLIDE_INDEX] &&
-          slides[SIGNAL_SLIDE_INDEX].classList.contains("slide--signal") &&
-          signalAutoOnce &&
-          !prefersReducedMotion
-        ) {
-          signalTimer = setTimeout(() => go(SIGNAL_SLIDE_INDEX + 1), 5200);
+        const onSignal = idx === SIGNAL_SLIDE_INDEX;
+        document.documentElement.classList.toggle("deck-signal-mode", onSignal);
+        if (navBar) {
+          navBar.setAttribute("aria-hidden", onSignal ? "true" : "false");
+          if (onSignal) {
+            navBar.setAttribute("inert", "");
+          } else {
+            navBar.removeAttribute("inert");
+          }
         }
       }
 
