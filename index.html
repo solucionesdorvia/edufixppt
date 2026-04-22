@@ -701,16 +701,13 @@
       }
 
       const lede = document.getElementById("lede");
-      if (lede && meta && typeof meta.encuestas_validacion_total === "number") {
-        lede.textContent =
-          `${meta.encuestas_validacion_total} respuestas en el set — proporciones alineadas al deck EduFix.`;
+      if (lede) {
+        lede.textContent = "+180 respuestas en el set.";
       }
 
       const n = data.length;
       document.getElementById("callout-text").textContent =
-        n >= 400
-          ? "Más de 400 encuestas confirman que el proceso actual es ineficiente e informal."
-          : `${n} respuestas en este set reflejan el mismo patrón: proceso percibido como ineficiente e informal.`;
+        "+180 encuestas confirman que el proceso actual es ineficiente e informal.";
 
       const fmt = (x) => (Number.isFinite(x) ? x.toFixed(1).replace(".", ",") : "—");
 
