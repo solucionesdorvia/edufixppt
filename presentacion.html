@@ -688,6 +688,127 @@
       0%, 100% { box-shadow: 0 0 0 0 rgba(217, 83, 30, 0.35); }
       50% { box-shadow: 0 0 0 7px rgba(217, 83, 30, 0.08); }
     }
+
+    /* —— Apertura estilo “sin señal” (gancho → portada) —— */
+    .slide.slide--signal {
+      background: #050508;
+      align-items: stretch;
+    }
+
+    .signal-wrap {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2rem) 5.5rem;
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .signal-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    .signal-scan {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.12) 2px,
+        rgba(0, 0, 0, 0.12) 3px
+      );
+      opacity: 0.35;
+      animation: signalScan 10s linear infinite;
+    }
+
+    @keyframes signalScan {
+      from { transform: translateY(0); }
+      to { transform: translateY(18px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .signal-scan { animation: none; opacity: 0.2; }
+    }
+
+    .signal-bars {
+      position: absolute;
+      bottom: 4.75rem;
+      left: 0;
+      right: 0;
+      height: 12px;
+      display: flex;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .signal-bars span { flex: 1; min-width: 0; }
+    .signal-bars span:nth-child(1) { background: #c8c8c8; }
+    .signal-bars span:nth-child(2) { background: #c8b800; }
+    .signal-bars span:nth-child(3) { background: #00a8c8; }
+    .signal-bars span:nth-child(4) { background: #00a050; }
+    .signal-bars span:nth-child(5) { background: #c850a0; }
+    .signal-bars span:nth-child(6) { background: #c82828; }
+    .signal-bars span:nth-child(7) { background: #2828c8; }
+
+    .signal-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 36rem;
+    }
+
+    .signal-label {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.85rem, 5.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: 0.35em;
+      text-indent: 0.35em;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 0 24px rgba(255, 80, 80, 0.25);
+    }
+
+    .signal-sub {
+      margin: 0 0 1.25rem;
+      font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .signal-hook {
+      margin: 0 0 1.5rem;
+      font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .signal-hook strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .signal-skip {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.28);
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 <body>
@@ -695,8 +816,30 @@
   <p class="hint">← → · Espacio · F pantalla completa</p>
 
   <div class="deck" id="deck">
-    <!-- 0 Portada (alineada a tu PPT) -->
-    <section class="slide is-active slide--hero">
+    <!-- 0 Gancho · sin señal -->
+    <section
+      class="slide is-active slide--signal"
+      aria-label="Introducción: metáfora de un reporte que no conecta"
+    >
+      <div class="signal-wrap">
+        <div class="signal-scan" aria-hidden="true"></div>
+        <div class="signal-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="signal-inner">
+          <p class="signal-label">SIN SEÑAL</p>
+          <p class="signal-sub">No signal · sin canal</p>
+          <p class="signal-hook">
+            ¿Te imaginas un campus donde el reporte <strong>no llega a ningún lado</strong>? Algo así se siente cuando
+            no hay un canal formal y trazable.
+          </p>
+          <p class="signal-skip" id="signal-skip-hint">Siguiente → o espacio · continúa automáticamente</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1 Portada (alineada a tu PPT) -->
+    <section class="slide slide--hero">
       <div class="slide-inner center">
         <p class="eyebrow reveal reveal-d1">Seminario de Integración Profesional · UADE</p>
         <h1 class="reveal reveal-d2"><span class="accent">EduFix</span></h1>
@@ -708,7 +851,7 @@
       </div>
     </section>
 
-    <!-- 1 Agenda -->
+    <!-- 2 Agenda -->
     <section class="slide">
       <div class="slide-inner">
         <p class="eyebrow reveal reveal-d1">EduFix — Entrega parcial N.° 1</p>
@@ -1019,7 +1162,24 @@
         });
       }
 
+      let signalTimer = null;
+      let signalAutoOnce = true;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const skipHint = document.getElementById("signal-skip-hint");
+      if (skipHint && prefersReducedMotion) {
+        skipHint.textContent = "Siguiente → o espacio para continuar";
+      }
+
+      function clearSignalTimer() {
+        if (signalTimer) {
+          clearTimeout(signalTimer);
+          signalTimer = null;
+        }
+      }
+
       function go(i) {
+        clearSignalTimer();
+        const prevIdx = idx;
         i = Math.max(0, Math.min(total - 1, i));
         slides[idx].classList.remove("is-active");
         idx = i;
@@ -1030,6 +1190,18 @@
         document.getElementById("counter").textContent = idx + 1 + " / " + total;
         dotBtns.forEach((b, j) => b.classList.toggle("is-on", j === idx));
         document.documentElement.style.setProperty("--prog", String((idx + 1) / total));
+
+        if (prevIdx === 0 && idx !== 0) {
+          signalAutoOnce = false;
+        }
+        if (
+          idx === 0 &&
+          slides[0].classList.contains("slide--signal") &&
+          signalAutoOnce &&
+          !prefersReducedMotion
+        ) {
+          signalTimer = setTimeout(() => go(1), 5200);
+        }
       }
 
       document.getElementById("btn-prev").addEventListener("click", () => go(idx - 1));
